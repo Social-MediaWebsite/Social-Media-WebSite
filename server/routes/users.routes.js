@@ -1,9 +1,16 @@
 const userRouter = require('express').Router();
 const {getAll,addOne,updateOne,deleteOne} = require("../controllers/users.controllers");
 
-userRouter.get("/users", getAll);
-userRouter.post("/users", addOne)
-userRouter.put("/users/:id", updateOne);
-userRouter.delete("/users/:id", deleteOne);
+const {authenticateUser} = require("../middelwares/authMiddelware.js");
+
+//unpotected routes for signUp & login
+
+userRouter.post('/users', addOne);
+
+
+// protected routes(user should login)
+userRouter.get('/users', authenticateUser, getAll);
+userRouter.put('/users/:id', authenticateUser, updateOne);
+userRouter.delete('/users/:id', authenticateUser, deleteOne);
 
 module.exports = userRouter;
