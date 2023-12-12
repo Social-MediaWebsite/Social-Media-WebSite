@@ -29,6 +29,7 @@ const deleteUser=(user,id,cb)=>{
     })
 }
 
+
 const getUserByEmail = (email, cb) => {
     const sql = 'SELECT * FROM users WHERE userEmail = ?';
     connection.query(sql, [email], (err, result) => {
@@ -56,3 +57,4 @@ const getUserById = (id, cb) => {
 
 
 module.exports={getAllUsers,AddUser,updateUser,deleteUser, getUserByEmail, getUserById}
+

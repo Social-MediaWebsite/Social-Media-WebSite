@@ -1,5 +1,6 @@
 const userRouter = require('express').Router();
 const {getAll,addOne,updateOne,deleteOne} = require("../controllers/users.controllers");
+
 const {authenticateUser} = require("../middelwares/authMiddelware.js");
 
 //unpotected routes for signUp & login
