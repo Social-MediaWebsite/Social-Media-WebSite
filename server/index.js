@@ -1,10 +1,13 @@
 const express = require("express");
 const userRouter = require('./routes/users.routes')
+const postRouter = require('./routes/postes.routes')
+const commentRouter = require('./routes/comments.routes')
+const replyRouter= require('./routes/reply.routes')
+const likesRouter=require('./routes/likes.routes')
+const friendsRouter=require('./routes/friends.routes')
+
 const cors = require('cors')
-// TODO: Update this
-// UNCOMMENT THE DATABASE YOU'D LIKE TO USE
-// const db = require('./database-mysql');
-// const db = require('./database-mongo');
+
 const db = require('./database-mysql');
 const app = express();
 const PORT = process.env.PORT || 3000
@@ -16,6 +19,12 @@ app.use(express.static(__dirname + "/../client/dist"));
 app.use(cors())
 
 app.use("/api/socialMedia", userRouter);
+app.use("/api/socialMedia", postRouter);
+app.use("/api/socialMedia", commentRouter);
+app.use("/api/socialMedia", replyRouter);
+app.use("/api/socialMedia", likesRouter);
+app.use("/api/socialMedia", friendsRouter);
+
 
 app.listen(PORT, function () {
   console.log("listening on port 3000!");
