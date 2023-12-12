@@ -25,13 +25,10 @@ function Signup() {
         <h2 className="title">Sign up</h2>
         <form onSubmit={handleSubmit} className="form">
           <label className="label">
-            First Name:
+            User Name :
             <input type="text" name="firstName" required className="input" />
           </label>
-          <label className="label">
-            Last Name:
-            <input type="text" name="lastName" required className="input" />
-          </label>
+
           <label className="label">
             Email Address:
             <input type="email" name="email" required className="input" />

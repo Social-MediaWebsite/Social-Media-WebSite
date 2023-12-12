@@ -1,3 +1,4 @@
+import React,{useState,useEffect}from "react"
 import './App.css';
 import {NavLink,Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
@@ -5,11 +6,24 @@ import Profile from './components/Profile';
 import Posts from './components/Posts';
 import Authentification from './components/Authentification';
 import Signup from './components/Signup';
+import axios from 'axios';
 
 function App() {
+  const [data,setData]=useState([])
+
+
+  useEffect(()=>{
+     axios.get('http://localhost:3000/api/socialMedia/users').then((ress)=>{
+      console.log(ress.data)
+      setData(ress.data)
+    }).catch((error)=>{
+      console.log(error)
+    })
+  },[])
+
   return (
     <div className="App">
-<header>
+      <header>
         <nav className="navbar">
           <img src={''} alt="Logo" className="logo"/>
           <div className="nav-links">
