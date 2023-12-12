@@ -158,3 +158,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+INSERT INTO users values(1,"test","test@","00","lala","11:20 Tue Dec 12 2023");
+INSERT INTO users values(2,"test2","test2@","000","no","12:20 Tue Dec 12 2023");
