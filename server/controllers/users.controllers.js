@@ -1,3 +1,4 @@
+
 const {getAllUsers,AddUser,updateUser,deleteUser, getUserByEmail, getUserById}=require('../models/users.models')
 const jwt = require('jsonwebtoken');
 
@@ -6,13 +7,12 @@ const generateToken = (userId) => {
 };
 
 
-
-
 const getAll=(req,res)=>{
     getAllUsers((err,result)=>{
         err?res.status(500).send(err):res.json(result)
     })
 }
+
 
 
 const addOne = (req, res) => {
@@ -42,6 +42,7 @@ const deleteOne=(req,res)=>{
         err?res.status(500).send(err):res.json(result)
     })
 }
+
 
 
 const getByEmail = (req, res) => {
@@ -76,3 +77,4 @@ const getById = (req, res) => {
 
 
 module.exports={getAll,addOne,updateOne,deleteOne, getByEmail, getById}
+

@@ -1,5 +1,7 @@
 const express = require("express");
+
 const authController = require('./controllers/authentificationcontroller.js')
+
 const userRouter = require('./routes/users.routes')
 const postRouter = require('./routes/postes.routes')
 const commentRouter = require('./routes/comments.routes')
@@ -19,8 +21,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/../client/dist"));
 app.use(cors())
 
+
 app.post('/register', authController.registerUser);
 app.post('/login', authController.loginUser);
+
 
 app.use("/api/socialMedia", userRouter);
 app.use("/api/socialMedia", postRouter);

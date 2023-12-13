@@ -160,6 +160,7 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
+
 INSERT INTO users values(1,"houssem","houusem@gmail.com","00","https://shorturl.at/fjHS0","11:20 Tue Dec 12 2023");
 INSERT INTO users values(2,"mouhib","mouhib@gmail.com","jerba","https://shorturl.at/jnGX3","12:20 Tue Dec 12 2023");
 INSERT INTO users values(3,"oussema","oussema@gmail.com","ou11hh","https://shorturl.at/irL69","12:20 Tue Dec 12 2023");
@@ -174,4 +175,5 @@ INSERT INTO postes values(4,"jerrba :)","https://shorturl.at/bczXY","16:40
 Tue Dec 13 2023","16:40 Tue Dec 13 2023",2);
 INSERT INTO postes values(5,"i enjoy my time playing lol","https://shorturl.at/ABOVY","20:24
 Tue Dec 13 2023","20:24 Tue Dec 13 2023",1);
+
 
