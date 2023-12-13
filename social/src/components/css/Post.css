@@ -1,0 +1,52 @@
+.main-container {
+    width: 65%;
+    margin: 16px auto;
+    padding: 16px;
+    border-radius: 4px;
+}
+
+/* Style the post container */
+.post-container {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+/* Style the user information container */
+.user-info-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Style the user image */
+.user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* Style the post content container */
+.post-content-container {
+    margin-top: 16px;
+}
+
+/* Style the actions container */
+.actions-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+/* Center the image within the container */
+.post-content-container img {
+    display: block;
+    max-width: 100%;
+    height: 500px;
+    margin: 0 auto;
+}
+.poContent{
+    
+}
