@@ -30,7 +30,7 @@ function Profile() {
       console.error('Error uploading image: ', error);
     }
   };
-
+  console.log(image);
   return (
     <div>
         {

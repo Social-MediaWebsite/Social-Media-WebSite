@@ -22,11 +22,38 @@ const updateUser=(user,id,cb)=>{
         cb(err,result)
     })
 }
-const deleteUser=(id,cb)=>{
+const deleteUser=(user,id,cb)=>{
     const sql=`DELETE FROM users WHERE userId=${id}`
-    connection.query(sql,(err,result)=>{
+    connection.query(sql,user,(err,result)=>{
         cb(err,result)
     })
 }
 
-module.exports={getAllUsers,AddUser,updateUser,deleteUser}
+
+const getUserByEmail = (email, cb) => {
+    const sql = 'SELECT * FROM users WHERE userEmail = ?';
+    connection.query(sql, [email], (err, result) => {
+      if (err) {
+        cb(err, null);
+      } else {
+        const user = result[0];
+        cb(null, user);
+      }
+    });
+  };
+
+const getUserById = (id, cb) => {
+    const sql = 'SELECT * FROM users WHERE userId = ?';
+    connection.query(sql, [id], (err, result) => {
+      if (err) {
+        cb(err, null);
+      } else {
+        const user = result[0];
+        cb(null, user);
+      }
+    });
+  };
+
+
+
+module.exports={getAllUsers,AddUser,updateUser,deleteUser, getUserByEmail, getUserById}

@@ -29,7 +29,7 @@ function App() {
           <div className="nav-links">
             <NavLink to={'/'} className="nav-link">Login</NavLink>
             <NavLink to={'/Home'} className="nav-link">Home</NavLink>
-            <NavLink to={'/Posts'} className="nav-link">Posts</NavLink>
+  
             <NavLink to={'/Profile'} className="nav-link">Profile</NavLink>
           </div>
         </nav>

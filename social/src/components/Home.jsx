@@ -1,8 +1,12 @@
 import React from 'react'
-
+import Posts from './Posts'
+import './css/Post.css'
 function Home() {
   return (
-    <div>fzfzfz</div>
+    <div>
+      <Posts/>
+      
+    </div>
   )
 }
 

@@ -38,10 +38,10 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `social_media_website`.`postes` (
   `postId` INT NOT NULL AUTO_INCREMENT,
-  `po_content` VARCHAR(45) NOT NULL,
-  `po_image` VARCHAR(45) NOT NULL DEFAULT 'no content',
-  `po_publishedAt` VARCHAR(45) NOT NULL,
-  `po_updatedAt` VARCHAR(45) NOT NULL,
+  `po_content` VARCHAR(255) NOT NULL,
+  `po_image` VARCHAR(255) NOT NULL DEFAULT 'no content',
+  `po_publishedAt` VARCHAR(255) NOT NULL,
+  `po_updatedAt` VARCHAR(255) NOT NULL,
   `po_userId` INT NOT NULL,
   PRIMARY KEY (`postId`),
   INDEX `fk_postes_users1_idx` (`po_userId` ASC) VISIBLE,

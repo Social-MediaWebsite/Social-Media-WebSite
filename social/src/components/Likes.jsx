@@ -1,8 +1,10 @@
 import React from 'react'
-
+import { FcLike } from "react-icons/fc";
+import { FcLikePlaceholder } from "react-icons/fc";
 function Likes() {
   return (
-    <div>Likes</div>
+    <div><FcLike />
+    <FcLikePlaceholder /></div>
   )
 }
 

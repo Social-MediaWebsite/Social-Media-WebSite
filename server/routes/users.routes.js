@@ -1,9 +1,13 @@
 const userRouter = require('express').Router();
 const {getAll,addOne,updateOne,deleteOne} = require("../controllers/users.controllers");
+const {authenticateUser} = require("../middlewares/authMiddelware");
 
-userRouter.get("/users", getAll);
-userRouter.post("/users", addOne)
-userRouter.put("/users/:id", updateOne);
-userRouter.delete("/users/:id", deleteOne);
+userRouter.post('/users', addOne);
 
-module.exports = userRouter;
+
+// protected routes(user should login)
+userRouter.get('/users', authenticateUser, getAll);
+userRouter.put('/users/:id', authenticateUser, updateOne);
+userRouter.delete('/users/:id', authenticateUser, deleteOne);
+
+module.exports = userRouter; 
