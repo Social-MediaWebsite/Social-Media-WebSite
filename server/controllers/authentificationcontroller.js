@@ -17,6 +17,7 @@ const registerUser = async (req, res) => {
       userEmail,
       userPassword: hashedPassword,
       userImage: 'https://shorturl.at/egA37',
+
     };
     
 

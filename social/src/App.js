@@ -34,9 +34,6 @@ const [oneUser,setOneUser]=useState([])
    })
  },[])
 
-
-
-
   return (
     <div className="App">
       <header>

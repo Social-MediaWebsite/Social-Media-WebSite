@@ -1,4 +1,4 @@
-/* post.css */
+
 .home {
     display: flex;
 }
@@ -102,7 +102,6 @@
 .post-content-container {
     margin-top: 16px;
 }
-
 .poContent h3 {
     margin: 0;
     font-size: 1.2em;
@@ -148,4 +147,3 @@
     box-sizing: border-box;
 }
 
-/* Add more styles as needed */

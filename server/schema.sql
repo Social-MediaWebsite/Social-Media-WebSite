@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `social_media_website`.`users` (
   PRIMARY KEY (`userId`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 6
+
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -90,6 +91,7 @@ CREATE TABLE IF NOT EXISTS `social_media_website`.`friends` (
   INDEX `fk_friends_users_idx` (`fr_userId` ASC) VISIBLE,
   CONSTRAINT `fk_friends_users`
     FOREIGN KEY (`fr_userId`)
+
     REFERENCES `social_media_website`.`users` (`userId`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -106,6 +108,7 @@ CREATE TABLE IF NOT EXISTS `social_media_website`.`likes` (
   PRIMARY KEY (`idlikes`),
   INDEX `fk_likes_users1_idx` (`li_userId` ASC) VISIBLE,
   INDEX `fk_likes_postes1_idx` (`po_postId` ASC) VISIBLE,
+
   CONSTRAINT `fk_likes_postes1`
     FOREIGN KEY (`po_postId`)
     REFERENCES `social_media_website`.`postes` (`postId`),
@@ -145,7 +148,6 @@ COLLATE = utf8mb4_0900_ai_ci;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
 
 
 

@@ -14,7 +14,6 @@ const getAll=(req,res)=>{
 }
 
 
-
 const addOne = (req, res) => {
   const { body } = req;
 
@@ -44,7 +43,6 @@ const deleteOne=(req,res)=>{
 }
 
 
-
 const getByEmail = (req, res) => {
     const userEmail = req.params.email;
 
@@ -72,8 +70,6 @@ const getById = (req, res) => {
       }
     });
   };
-
-
 
 
 module.exports={getAll,addOne,updateOne,deleteOne, getByEmail, getById}

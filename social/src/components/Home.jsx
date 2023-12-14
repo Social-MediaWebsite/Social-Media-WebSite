@@ -1,3 +1,4 @@
+
 import React ,{useParams}from 'react'
 import Posts from './Posts'
 import './css/Post.css'

@@ -4,14 +4,15 @@ import Comments from './Comments'
 import Likes from './Likes'
 import './css/Post.css'
 import { FaComments } from "react-icons/fa";
-function Posts() {
 
+function Posts() {
  const [postData,setPostData]=useState([])
  const [showComment,setShowComment] = useState(false)
   const [idpost,setIdPost] = useState(0)
   const [commentData,setCommentData] = useState([])
   const [idcomment,setIdComment] = useState(0)
 const [content,setContent]=useState("")
+
  useEffect(()=>{
     axios.get("http://localhost:3000/api/socialMedia/postes").then((ress)=>{
       console.log(ress.data)
