@@ -13,7 +13,7 @@
     font-size: 14px;
 }
 
-.comments-container img {
+.userco-info img {
     width: 24px; 
     height: 24px;
     border-radius: 50%;
@@ -33,16 +33,27 @@
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-.imageCO{
-    
+
+.co-info {
+    margin-right: 50%;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid red;
 }
-/* Style the reply and delete actions in the comment */
-.comments-container > div > div:last-child h5 {
+.co-info img{
+    width: 80%; 
+    border-radius: 0;
+    margin-right: 8px;
+}
+.del-rep {
+    justify-content: space-around;
+}
+.del-rep h5 {
     cursor: pointer;
     margin-right: 8px;
 }
 
 /* Style the reply and delete actions in the comment on hover */
-.comments-container > div > div:last-child h5:hover {
+.del-rep h5:hover {
     text-decoration: underline;
 }
