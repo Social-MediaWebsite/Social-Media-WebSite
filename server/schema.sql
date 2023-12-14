@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS `social_media_website`.`users` (
   `createdAt` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`userId`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -47,10 +48,9 @@ CREATE TABLE IF NOT EXISTS `social_media_website`.`postes` (
   INDEX `fk_postes_users1_idx` (`po_userId` ASC) VISIBLE,
   CONSTRAINT `fk_postes_users1`
     FOREIGN KEY (`po_userId`)
-    REFERENCES `social_media_website`.`users` (`userId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `social_media_website`.`users` (`userId`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -71,15 +71,12 @@ CREATE TABLE IF NOT EXISTS `social_media_website`.`comments` (
   INDEX `fk_comments_users1_idx` (`co_userId` ASC) VISIBLE,
   CONSTRAINT `fk_comments_postes1`
     FOREIGN KEY (`po_postId`)
-    REFERENCES `social_media_website`.`postes` (`postId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `social_media_website`.`postes` (`postId`),
   CONSTRAINT `fk_comments_users1`
     FOREIGN KEY (`co_userId`)
-    REFERENCES `social_media_website`.`users` (`userId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `social_media_website`.`users` (`userId`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -89,13 +86,11 @@ COLLATE = utf8mb4_0900_ai_ci;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `social_media_website`.`friends` (
   `friendsId` INT NOT NULL,
-  `friendsId` INT NOT NULL,
+  `fr_userId` INT NOT NULL,
   INDEX `fk_friends_users_idx` (`fr_userId` ASC) VISIBLE,
   CONSTRAINT `fk_friends_users`
     FOREIGN KEY (`fr_userId`)
-    REFERENCES `social_media_website`.`users` (`userId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `social_media_website`.`users` (`userId`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -111,16 +106,12 @@ CREATE TABLE IF NOT EXISTS `social_media_website`.`likes` (
   PRIMARY KEY (`idlikes`),
   INDEX `fk_likes_users1_idx` (`li_userId` ASC) VISIBLE,
   INDEX `fk_likes_postes1_idx` (`po_postId` ASC) VISIBLE,
-  CONSTRAINT `fk_likes_users1`
-    FOREIGN KEY (`li_userId`)
-    REFERENCES `social_media_website`.`users` (`userId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_likes_postes1`
     FOREIGN KEY (`po_postId`)
-    REFERENCES `social_media_website`.`postes` (`postId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `social_media_website`.`postes` (`postId`),
+  CONSTRAINT `fk_likes_users1`
+    FOREIGN KEY (`li_userId`)
+    REFERENCES `social_media_website`.`users` (`userId`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -142,14 +133,10 @@ CREATE TABLE IF NOT EXISTS `social_media_website`.`reply` (
   INDEX `fk_reply_users1_idx` (`re_userId` ASC) VISIBLE,
   CONSTRAINT `fk_reply_comments1`
     FOREIGN KEY (`co_commentId`)
-    REFERENCES `social_media_website`.`comments` (`commentId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `social_media_website`.`comments` (`commentId`),
   CONSTRAINT `fk_reply_users1`
     FOREIGN KEY (`re_userId`)
-    REFERENCES `social_media_website`.`users` (`userId`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `social_media_website`.`users` (`userId`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
@@ -158,6 +145,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 
 
 
@@ -176,4 +164,9 @@ Tue Dec 13 2023","16:40 Tue Dec 13 2023",2);
 INSERT INTO postes values(5,"i enjoy my time playing lol","https://shorturl.at/ABOVY","20:24
 Tue Dec 13 2023","20:24 Tue Dec 13 2023",1);
 
+INSERT INTO comments values(1	,"hi i'm mouhib hhh","https://shorturl.at/txFR1","22:38 Wed Dec 13 2023",	"22:38 Wed Dec 13 2023",1,2)
+INSERT INTO comments values(2,"hi i'm oussema","https://shorturl.at/eEX12"	,"22:39 Wed Dec 13 2023"	,"22:39 Wed Dec 13 2023",	1,3)
 
+INSERT INTO friends values(1,2)
+INSERT INTO friends values(3,2)
+INSERT INTO friends values(4,2)
