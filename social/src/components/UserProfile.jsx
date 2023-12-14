@@ -3,22 +3,26 @@ import axios from 'axios'
 import Comments from './Comments'
 import Likes from './Likes'
 import './css/Post.css'
+import './css/UserProfile.css'
 import { FaComments } from "react-icons/fa";
-
-function Posts() {
- const [postData,setPostData]=useState([])
+function UserProfile() {
+const [oneUser,setOneUser]=useState([])
  const [showComment,setShowComment] = useState(false)
   const [idpost,setIdPost] = useState(0)
   const [commentData,setCommentData] = useState([])
   const [idcomment,setIdComment] = useState(0)
-const [content,setContent]=useState("")
+
 
  useEffect(()=>{
-    axios.get("http://localhost:3000/api/socialMedia/postes").then((ress)=>{
-      console.log(ress.data)
-      setPostData(ress.data)
-    })
- },[])
+    axios.get('http://localhost:3000/api/socialMedia/postes/user/2').then((ress)=>{
+     console.log(ress.data)
+     setOneUser(ress.data)
+   }).catch((error)=>{
+     console.log(error)
+   })
+  },[])
+
+
 
  const hundelComment=(id)=>{ 
   setIdComment(id)
@@ -32,11 +36,12 @@ const [content,setContent]=useState("")
  
  return (
     <div className="main-container">
-      <div>
-        <input type="text" onChange={(event)=>{setContent(event.target.value)}}/>
-       <button onClick={()=>{}}>Add Post</button>
+      <div className='profile'>
+        <img src="userImage" alt="" />   
+        <h2>userName</h2>
+        <p>userEmail</p>
       </div>
-     {postData.map((e,i)=>(
+     {oneUser.map((e,i)=>(
       <div key={i} className="post-container">
         <div className="user-info-container">
           <img className="user-image" src={e.userImage} alt='hi' />
@@ -65,4 +70,4 @@ const [content,setContent]=useState("")
  )
 }
 
-export default Posts
+export default UserProfile

@@ -19,19 +19,20 @@ const [addComment,setAddComment]=useState({})
         <input type="text" onChange={(e)=>{setAddComment(e.target.value)}}/>
       </div>
         {commentData.map((e,i)=>(
-          <div key={i}>
-            <div>
+          <div key={i} className='one-comment'>
+            <div className='userco-info'>
               <img src={e.userImage} alt="" />
               <h6>{e.userName}</h6>
               <p>{e.co_updatedAt}</p>
             </div>
-            <div>
+
+            <div className='co-info'>
             <p>{e.co_Content}</p>
             <img src={e.co_Image} alt="" />
 
             </div>
-            <div>
-              <h5>reply</h5> <h5 >delete</h5>
+            <div className='del-rep'>
+              <h5 >reply</h5> <h5 >delete</h5>
             </div>
           </div>
         ))}

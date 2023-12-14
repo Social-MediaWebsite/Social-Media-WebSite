@@ -1,49 +1,59 @@
-/* Style the comments container */
-.comments-container {
-    margin-top: 16px;
-}
 
-/* Style each individual comment */
 .comments-container > div {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 12px;
-    margin-bottom: 12px;
-}
-
-/* Style the user information in the comment */
-.comments-container > div > div:first-child {
-    display: flex;
-    align-items: center;
     margin-bottom: 8px;
 }
 
-/* Style the user image in the comment */
-.comments-container > div > div:first-child img {
-    width: 30px;
-    height: 30px;
+.comments-container div > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.comments-container h6, .comments-container p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.userco-info img {
+    width: 24px; 
+    height: 24px;
     border-radius: 50%;
     margin-right: 8px;
 }
 
-/* Style the comment content */
-.comments-container > div > div:nth-child(2) {
-    margin-bottom: 8px;
+.comments-container input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+.comments-container {
+    max-height: 200px;
+    overflow-y: auto;  
+    padding: 8px;
+    margin-top: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-/* Style the actions container in the comment */
-.comments-container > div > div:last-child {
-    display: flex;
-    justify-content: space-between;
+.co-info {
+    margin-right: 50%;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid red;
 }
-
-/* Style the reply and delete actions in the comment */
-.comments-container > div > div:last-child h5 {
+.co-info img{
+    width: 80%; 
+    border-radius: 0;
+    margin-right: 8px;
+}
+.del-rep {
+    justify-content: space-around;
+}
+.del-rep h5 {
     cursor: pointer;
     margin-right: 8px;
 }
 
-/* Style the reply and delete actions in the comment on hover */
-.comments-container > div > div:last-child h5:hover {
+.del-rep h5:hover {
     text-decoration: underline;
 }
