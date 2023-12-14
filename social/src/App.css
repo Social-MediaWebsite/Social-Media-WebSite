@@ -1,0 +1,56 @@
+.App {
+  text-align: center;
+}
+
+
+
+header {
+  background-color: #333;
+  padding: 10px;
+
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+.nav-search {
+  background-color: aliceblue;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(175, 172, 172);
+  width: 220px;
+  gap:15px;
+  height: 25px;
+  border-radius: 20px;
+  padding-left: 5px;
+
+}
+.nav-search input {
+  background-color: transparent;
+  border:0;
+  outline:none
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.active-link {
+  border-bottom: 2px solid white;
+}
