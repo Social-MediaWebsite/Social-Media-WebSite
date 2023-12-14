@@ -1,8 +1,15 @@
 import React from 'react'
 
-function Friends() {
+function Friends({data}) {
   return (
-    <div>Friends</div>
+    <div className='friends-container'>
+      {data.map((el,i)=>(
+        <div key={i} className='friends-item' >
+          <img src={el.userImage} alt="" />
+          <h3>{el.userName}</h3>
+        </div>
+      ))}
+    </div>
   )
 }
 
