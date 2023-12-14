@@ -4,20 +4,24 @@ import image from '../assets/letter1.png'
 
 function Navbar() {
   return (
-    <div>
+    <header className='navbar-content'>
+      <div className='userInfo'>
+        <img src='https://shorturl.at/egA37'  alt="" />
+      <h2>userName</h2>
+      </div>
+        <nav className="navbar-links">
+            <NavLink to={'/Home'} className="navbar-link">Home</NavLink>
+            <div className='line'/>
+            <NavLink to={'/Posts'} className="navbar-link">Posts</NavLink>
+            <div className='line'/>
+            <NavLink to={'/Friends'} className="navbar-link">Friends</NavLink>
+            <div className='line'/>
+            <NavLink to={'/Profile'} className="navbar-link">Profile</NavLink>
+            <div className='line'/>
+            <div className='navbar-link'>Contact us</div>
 
-<header>
-        <nav className="navbar">
-          <img src={image} alt="Logo" className="logo"/>
-          <div className="nav-links">
-            <NavLink to={'/'} className="nav-link">Login</NavLink>
-            <NavLink to={'/Home'} className="nav-link">Home</NavLink>
-            <NavLink to={'/Posts'} className="nav-link">Posts</NavLink>
-            <NavLink to={'/Profile'} className="nav-link">Profile</NavLink>
-          </div>
         </nav>
       </header>
-    </div>
   )
 }
 
