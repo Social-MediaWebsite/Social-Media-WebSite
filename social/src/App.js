@@ -14,7 +14,6 @@ import { IoSearch } from "react-icons/io5";
 function App() {
   const [data,setData]=useState([])
   const [friends,setFriends]=useState([])
-const [oneUser,setOneUser]=useState([])
 
   useEffect(()=>{
      axios.get('http://localhost:3000/api/socialMedia/users').then((ress)=>{
@@ -61,7 +60,7 @@ const [oneUser,setOneUser]=useState([])
         {/* <Route path='/Profile' element={<Profile />} /> */}
         <Route path='/Posts' element={<Posts />} />
         <Route path='/Signup' element={<Signup/>}></Route>
-        <Route path='/UserProfile' element={<UserProfile oneUser={oneUser}/>}></Route>
+        <Route path='/UserProfile' element={<UserProfile/>}></Route>
 
       </Routes>
     </div>
