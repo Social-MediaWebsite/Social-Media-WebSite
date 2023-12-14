@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Image } from 'cloudinary-react';
+import './css/Cloudinary.css'
+import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 
 function Cloudinary() {
   const cloudName = 'dcq9dwrsb';
   const presetName = 'l4ng65bl';
   const [image, setImage] = useState('');
-  const [show,setShow] = useState(true);
-  const [newImage,setNewImage] = useState("");
 
   const handleUpload = async (e) => {
     const file = e.target.files[0];
@@ -25,25 +25,17 @@ function Cloudinary() {
 
       const data = await response.json();
       setImage(data.secure_url); 
-      setNewImage(data.secure_url)
     } catch (error) {
       console.error('Error uploading image: ', error);
     }
   };
   console.log(image);
   return (
-    <div>
-        {
-            show &&
-            <button onClick={()=>setShow(!show)}>Update</button>
-        }
-        {!show && <div>
-      <input type="file" onChange={handleUpload} />
-      {image && (
-        <Image style={{ width:100 , height:100}} cloudName={cloudName} publicId={image}>
-        </Image>
-      )}
-        </div>}
+    <div className='cloudinary'>
+      <label >
+      <MdOutlineAddPhotoAlternate />
+      <input  type="file" onChange={handleUpload} />
+      </label>
     </div>
   );
 }

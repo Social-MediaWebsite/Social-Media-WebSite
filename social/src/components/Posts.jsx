@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import Comments from './Comments'
 import Likes from './Likes'
+import Cloudinary from './Cloudinary'
 import './css/Post.css'
 import { FaComments } from "react-icons/fa";
 
@@ -32,10 +33,14 @@ const [content,setContent]=useState("")
  
  return (
     <div className="main-container">
-      <div>
-        <input type="text" onChange={(event)=>{setContent(event.target.value)}}/>
-       <button onClick={()=>{}}>Add Post</button>
+      <div className='add-container'>
+        <div className='value-container' >
+        <input type="text" placeholder='Add a post !!' onChange={(event)=>{setContent(event.target.value)}}/>
+        <Cloudinary/>
+        </div>
+        <h4 className='add-button' onClick={()=>{console.log("hello")}}>Add</h4>
       </div>
+      <div className='postes-container'>
      {postData.map((e,i)=>(
       <div key={i} className="post-container">
         <div className="user-info-container">
@@ -61,6 +66,7 @@ const [content,setContent]=useState("")
 
       </div>
      ))}
+     </div>
     </div>
  )
 }
