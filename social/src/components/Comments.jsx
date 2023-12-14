@@ -27,7 +27,7 @@ const [addComment,setAddComment]=useState({})
             </div>
             <div>
             <p>{e.co_Content}</p>
-            <img src={e.co_Image} alt="" />
+            <img className='imageCO' src={e.co_Image} alt="" />
 
             </div>
             <div>

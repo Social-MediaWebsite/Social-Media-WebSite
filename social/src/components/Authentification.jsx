@@ -7,7 +7,6 @@ function Authentification() {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     console.log({
-
       userEmail: formData.get('userEmail'),
       userPassword: formData.get('userPassword'),
     });
