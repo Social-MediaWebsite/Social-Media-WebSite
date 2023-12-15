@@ -49,15 +49,22 @@
     align-items: center;
     margin-bottom: 20px;
    }
-   
+   .user-image1{
+    cursor: pointer;
+    transition: 0.3s;
+   }
    .user-image {
+  
     width: 44px;
     height: 44px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 10px;
    }
-   
+   .user-image1:hover {
+    opacity: 0.5;
+}
+
    .post-content-container {
     display: flex;
     flex-direction: column;

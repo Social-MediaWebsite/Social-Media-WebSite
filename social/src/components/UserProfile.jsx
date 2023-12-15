@@ -37,7 +37,7 @@ const [oneUser,setOneUser]=useState([])
  return (
     <div className="main-container">
       <div className='profile'>
-        <img src="https://shorturl.at/egA37" alt="" />   
+        <img className='user-image1' src="https://shorturl.at/egA37" alt="" />   
         <h2>userName</h2>
         <p>userEmail</p>
       </div>
