@@ -1,5 +1,4 @@
-
-const {getAllUsers,AddUser,updateUser,deleteUser, getUserByEmail, getUserById}=require('../models/users.models')
+const {getAllUsers,AddUser,updateUser,deleteUser, getUserById}=require('../models/users.models')
 const jwt = require('jsonwebtoken');
 
 const generateToken = (userId) => {
@@ -22,15 +21,16 @@ const addOne = (req, res) => {
   AddUser(body, (err, result) => {
     if (err) {
       console.error("Error:", err);
-      res.status(500).send(err);
-    } else {
-      console.log("Result:", result);
-      const token = generateToken(body.userId, body.userName);
-      const { userName,userEmail} = body;
-      res.json({userName,userEmail,token});
+      return res.status(500).send(err);
     }
+    // console.log("Result:", result.insertId);
+    const token = generateToken(body.userId, body.userName);
+    const userId = result.insertId
+    const { userName, userEmail } = body;
+    res.json({ userName, userEmail, userId, token });
   });
 };
+
 
 const updateOne=(req,res)=>{
     updateUser(req.body,req.params.id,(err,result)=>{
@@ -45,23 +45,25 @@ const deleteOne=(req,res)=>{
 }
 
 
-const getByEmail = (req, res) => {
-    const userEmail = req.params.email;
-  
-    getUserByEmail(userEmail, (err, result) => {
-      if (err) {
-        res.status(500).send(err);
-      } else if (!result) {
-        res.status(404).json({ message: 'User not found' });
-      } else {
-        res.json(result);
-      }
-    });
-  };
+// const getByEmail = (req, res) => {
+//     const userEmail = req.params.email;
+//     const {body} = req.body
+
+//     getUserByEmail(userEmail, (err, result) => {
+//       if (err) {
+//         res.status(500).send(err);
+//       } else if (!result) {
+//         res.status(404).json({ message: 'User not found' });
+//       } else {
+//         const token = generateToken(body.userId, body.userName);
+//         res.json(result);
+//       }
+//     });
+//   };
 
 const getById = (req, res) => {
     const userId = req.params.id;
-  
+
     getUserById(userId, (err, result) => {
       if (err) {
         res.status(500).send(err);
@@ -73,8 +75,7 @@ const getById = (req, res) => {
     });
   };
 
-  
 
 
-module.exports={getAll,addOne,updateOne,deleteOne, getByEmail, getById}
 
+module.exports={getAll,addOne,updateOne,deleteOne,getById}
