@@ -37,12 +37,12 @@ const [oneUser,setOneUser]=useState([])
  return (
     <div className="main-container">
       <div className='profile'>
-        <img src="userImage" alt="" />   
+        <img className='user-image1' src="https://shorturl.at/egA37" alt="" />   
         <h2>userName</h2>
         <p>userEmail</p>
       </div>
      {oneUser.map((e,i)=>(
-      <div key={i} className="post-container">
+      <div key={i} className="post-container-userP">
         <div className="user-info-container">
           <img className="user-image" src={e.userImage} alt='hi' />
           <h3 onClick={()=>{}}>{e.userName}</h3>

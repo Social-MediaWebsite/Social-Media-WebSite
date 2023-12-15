@@ -1,0 +1,31 @@
+.friends-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  
+  .friends-item {
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+    
+  .friends-item img {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .friends-item h3 {
+    margin: 0;
+  }
+  
+  .friends-item img {
+    background-color: #ccc;
+}
+  
