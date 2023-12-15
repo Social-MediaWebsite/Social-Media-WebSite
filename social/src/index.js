@@ -4,12 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from './AuthContext/authContext.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-<BrowserRouter>
-    <App />
-</BrowserRouter>
+<React.StrictMode> {/* this is just a tool (doesnt affect the app) i used for catching errors early in the development process. */}
+    <BrowserRouter>
+      <AuthProvider> {/* Wrap the App with AuthProvider , so all the app component have access to the token */}
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
+  </React.StrictMode>,
 
 
 );

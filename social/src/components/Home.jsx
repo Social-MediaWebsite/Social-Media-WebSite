@@ -1,19 +1,19 @@
-import React ,{useParams}from 'react'
-import Posts from './Posts'
-import './css/Post.css'
+import React, { useState, useEffect } from 'react'; 
+import axios from 'axios';
+import Posts from './Posts';
+import './css/Post.css';
 import Navbar from './Navbar'
-import Cloudinary from './Cloudinary'
+
 function Home() {
-  // const {id}=useParams()
-  // console.log(id);
+  
+
+
   return (
-    <div className='home'>
-      
-      <Navbar/>
-      <Posts/>
-      <Cloudinary/>
+     <div className='home'>
+       <Navbar/>
+      <Posts />
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

@@ -53,7 +53,6 @@
     margin-right: 8px;
 }
 
-/* Style the reply and delete actions in the comment on hover */
 .del-rep h5:hover {
     text-decoration: underline;
 }

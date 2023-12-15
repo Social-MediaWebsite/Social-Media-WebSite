@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `social_media_website`.`users` (
   PRIMARY KEY (`userId`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 6
+
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -90,6 +91,7 @@ CREATE TABLE IF NOT EXISTS `social_media_website`.`friends` (
   INDEX `fk_friends_users_idx` (`fr_userId` ASC) VISIBLE,
   CONSTRAINT `fk_friends_users`
     FOREIGN KEY (`fr_userId`)
+
     REFERENCES `social_media_website`.`users` (`userId`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
@@ -106,6 +108,7 @@ CREATE TABLE IF NOT EXISTS `social_media_website`.`likes` (
   PRIMARY KEY (`idlikes`),
   INDEX `fk_likes_users1_idx` (`li_userId` ASC) VISIBLE,
   INDEX `fk_likes_postes1_idx` (`po_postId` ASC) VISIBLE,
+
   CONSTRAINT `fk_likes_postes1`
     FOREIGN KEY (`po_postId`)
     REFERENCES `social_media_website`.`postes` (`postId`),
@@ -148,10 +151,9 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 
-
 INSERT INTO users values(1,"houssem","houusem@gmail.com","00","https://shorturl.at/elGH8","11:20 Tue Dec 12 2023");
 INSERT INTO users values(2,"mouhib","mouhib@gmail.com","jerba","https://shorturl.at/jnGX3","12:20 Tue Dec 12 2023");
-INSERT INTO users values(3,"oussema","oussema@gmail.com","ou11hh","https://shorturl.at/irL69","12:20 Tue Dec 12 2023");
+INSERT INTO users values(3,"oussema","oussema@gmail.com","$2b$10$kk.UISq./hZsVEn/QJ.IL.M60loDgYDRTcbZ/TDufrL2YUYQtW3z6","https://shorturl.at/irL69","12:20 Tue Dec 12 2023");
 INSERT INTO users values(4,"ali","ali@gmail.com","00000","https://shorturl.at/qAD03","12:20 Tue Dec 13 2023");
 INSERT INTO postes values(1,"hello my friends my name is houssem","https://shorturl.at/jkxY9","14:10 
 Tue Dec 13 2023","14:10 Tue Dec 13 2023",1);
