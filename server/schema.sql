@@ -153,7 +153,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 INSERT INTO users values(1,"houssem","houusem@gmail.com","00","https://shorturl.at/elGH8","11:20 Tue Dec 12 2023");
 INSERT INTO users values(2,"mouhib","mouhib@gmail.com","jerba","https://shorturl.at/jnGX3","12:20 Tue Dec 12 2023");
-INSERT INTO users values(3,"oussema","oussema@gmail.com","ou11hh","https://shorturl.at/irL69","12:20 Tue Dec 12 2023");
+INSERT INTO users values(3,"oussema","oussema@gmail.com","$2b$10$kk.UISq./hZsVEn/QJ.IL.M60loDgYDRTcbZ/TDufrL2YUYQtW3z6","https://shorturl.at/irL69","12:20 Tue Dec 12 2023");
 INSERT INTO users values(4,"ali","ali@gmail.com","00000","https://shorturl.at/qAD03","12:20 Tue Dec 13 2023");
 INSERT INTO postes values(1,"hello my friends my name is houssem","https://shorturl.at/jkxY9","14:10 
 Tue Dec 13 2023","14:10 Tue Dec 13 2023",1);

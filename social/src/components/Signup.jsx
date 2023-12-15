@@ -1,30 +1,58 @@
-import React from 'react';
-import './css/Signup.css'
-import image from  '../assets/letter1.png'
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../AuthContext/authContext';
+import './css/Signup.css';
+import image from '../assets/letter1.png';
 
 function Signup() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    console.log({
-      userName: formData.get('userName'),
-      userEmail: formData.get('userEmail'),
-      userPassword: formData.get('userPassword'),
-    });
+  const { setToken } = useAuth();
+  const navigate = useNavigate();
+
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSignup = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+
+    try {
+      const response = await axios.post('http://localhost:3000/register', {
+        userName: formData.get('userName'),
+        userEmail: formData.get('userEmail'),
+        userPassword: formData.get('userPassword'),
+      });
+      // console.log("register",response.data);
+      const {userEmail,userName,token, userId} = response.data;
+      console.log("id",userId);
+
+      if (userEmail && userName && token) {
+        setToken(token);
+        setSuccessMessage('Registration successful!');
+        setErrorMessage('');
+
+        navigate(`/Home/${userId}`); // id is done successfully
+        
+      } else {
+        setSuccessMessage('');
+        setErrorMessage('Registration failed. Please try again.');
+      }
+
+    } catch (error) {
+      setSuccessMessage('');
+      setErrorMessage('Error during registration. Please try again.');
+      console.error('Error during registration:', error);
+    }
   };
 
   return (
     <div className="container">
       <div className="form-container">
-        <img
-          src={image}
-          alt="Lock Icon"
-          className="lock-icon"
-        />
+        <img src={image} alt="Lock Icon" className="lock-icon" />
         <h2 className="title">Sign up</h2>
-        <form onSubmit={handleSubmit} className="form">
+        <form onSubmit={handleSignup} className="form">
           <label className="label">
-            User Name :
+            User Name:
             <input type="text" name="userName" required className="input" />
           </label>
 
@@ -40,6 +68,17 @@ function Signup() {
             Sign Up
           </button>
         </form>
+          {successMessage && (
+          <div className="success-message">
+            {successMessage}
+          </div>
+        )}
+
+        {errorMessage && (
+          <div className="error-message">
+            {errorMessage}
+          </div>
+        )}
         <p className="create-account-link">
           Already have an account? <a href="/">Sign in here</a>.
         </p>
