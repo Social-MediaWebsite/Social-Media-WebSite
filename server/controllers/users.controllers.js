@@ -5,9 +5,6 @@ const generateToken = (userId) => {
   return jwt.sign({ userId }, 'secretKey', { expiresIn: '1h' });
 };
 
-
-
-
 const getAll=(req,res)=>{
     getAllUsers((err,result)=>{
         err?res.status(500).send(err):res.json(result)
@@ -30,8 +27,6 @@ const addOne = (req, res) => {
     res.json({ userName, userEmail, userId, token });
   });
 };
-
-
 const updateOne=(req,res)=>{
     updateUser(req.body,req.params.id,(err,result)=>{
         err?res.status(500).send(err):res.json(result)
@@ -74,8 +69,5 @@ const getById = (req, res) => {
       }
     });
   };
-
-
-
 
 module.exports={getAll,addOne,updateOne,deleteOne,getById}

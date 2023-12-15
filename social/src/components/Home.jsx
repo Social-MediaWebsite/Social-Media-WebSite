@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Posts from './Posts';
 import './css/Post.css';
+import Navbar from './Navbar'
 
 function Home() {
   const [userData, setUserData] = useState(null);
@@ -31,7 +32,8 @@ function Home() {
   }, [id]); 
 
   return (
-    <div>
+     <div className='home'>
+       <Navbar/>
       <Posts />
     </div>
   );

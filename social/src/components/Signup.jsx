@@ -68,8 +68,7 @@ function Signup() {
             Sign Up
           </button>
         </form>
-
-        {successMessage && (
+          {successMessage && (
           <div className="success-message">
             {successMessage}
           </div>
@@ -80,7 +79,6 @@ function Signup() {
             {errorMessage}
           </div>
         )}
-
         <p className="create-account-link">
           Already have an account? <a href="/">Sign in here</a>.
         </p>

@@ -1,0 +1,92 @@
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+   }
+   
+   .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+   }
+   
+   .profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+   }
+   
+   .profile h2 {
+    margin: 0;
+    margin-top: 10px;
+    font-size: 24px;
+   }
+   
+   .profile p {
+    margin: 0;
+    margin-top: 5px;
+    font-size: 16px;
+   }
+   
+   .post-container-userP {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+   }
+   
+   .user-info-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+   }
+   .user-image1{
+    cursor: pointer;
+    transition: 0.3s;
+   }
+   .user-image {
+  
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+   }
+   .user-image1:hover {
+    opacity: 0.5;
+}
+
+   .post-content-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+   }
+   
+   .poContent h3 {
+    margin: 0;
+    font-size: 18px;
+   }
+   
+   .poContent img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+   }
+   
+   .actions-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   }
+
