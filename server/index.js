@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/../client/dist"));
 app.use(cors())
 
+
 app.post('/register', authController.registerUser);
 app.post('/login', authController.loginUser);
 

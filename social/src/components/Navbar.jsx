@@ -16,10 +16,11 @@ function Navbar() {
             <div className='line'/>
             <NavLink to={'/Friends'} className="navbar-link">Friends</NavLink>
             <div className='line'/>
-            <NavLink to={'/Profile'} className="navbar-link">Profile</NavLink>
+            {/* <NavLink to={'/Profile'} className="navbar-link">Profile</NavLink> */}
             <div className='line'/>
+            <NavLink to={'/UserProfile'} className="nav-link">Your Profile</NavLink>
             <div className='navbar-link'>Contact us</div>
-
+             
         </nav>
       </header>
   )

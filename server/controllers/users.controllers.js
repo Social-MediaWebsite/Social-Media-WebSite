@@ -1,11 +1,10 @@
+
 const {getAllUsers,AddUser,updateUser,deleteUser, getUserByEmail, getUserById}=require('../models/users.models')
 const jwt = require('jsonwebtoken');
 
 const generateToken = (userId) => {
   return jwt.sign({ userId }, 'secretKey', { expiresIn: '1h' });
 };
-
-
 
 
 const getAll=(req,res)=>{
@@ -73,6 +72,5 @@ const getById = (req, res) => {
   };
 
 
-
-
 module.exports={getAll,addOne,updateOne,deleteOne, getByEmail, getById}
+

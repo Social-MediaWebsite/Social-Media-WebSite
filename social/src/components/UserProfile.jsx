@@ -2,24 +2,27 @@ import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import Comments from './Comments'
 import Likes from './Likes'
-import Cloudinary from './Cloudinary'
 import './css/Post.css'
+import './css/UserProfile.css'
 import { FaComments } from "react-icons/fa";
-
-function Posts() {
- const [postData,setPostData]=useState([])
+function UserProfile() {
+const [oneUser,setOneUser]=useState([])
  const [showComment,setShowComment] = useState(false)
   const [idpost,setIdPost] = useState(0)
   const [commentData,setCommentData] = useState([])
   const [idcomment,setIdComment] = useState(0)
-const [content,setContent]=useState("")
+
 
  useEffect(()=>{
-    axios.get("http://localhost:3000/api/socialMedia/postes").then((ress)=>{
-      console.log(ress.data)
-      setPostData(ress.data)
-    })
- },[])
+    axios.get('http://localhost:3000/api/socialMedia/postes/user/2').then((ress)=>{
+     console.log(ress.data)
+     setOneUser(ress.data)
+   }).catch((error)=>{
+     console.log(error)
+   })
+  },[])
+
+
 
  const hundelComment=(id)=>{ 
   setIdComment(id)
@@ -33,16 +36,13 @@ const [content,setContent]=useState("")
  
  return (
     <div className="main-container">
-      <div className='add-container'>
-        <div className='value-container' >
-        <input type="text" placeholder='Add a post !!' onChange={(event)=>{setContent(event.target.value)}}/>
-        <Cloudinary/>
-        </div>
-        <h4 className='add-button' onClick={()=>{console.log("hello")}}>Add</h4>
+      <div className='profile'>
+        <img src="https://shorturl.at/egA37" alt="" />   
+        <h2>userName</h2>
+        <p>userEmail</p>
       </div>
-      <div className='postes-container'>
-     {postData.map((e,i)=>(
-      <div key={i} className="post-container">
+     {oneUser.map((e,i)=>(
+      <div key={i} className="post-container-userP">
         <div className="user-info-container">
           <img className="user-image" src={e.userImage} alt='hi' />
           <h3 onClick={()=>{}}>{e.userName}</h3>
@@ -66,9 +66,8 @@ const [content,setContent]=useState("")
 
       </div>
      ))}
-     </div>
     </div>
  )
 }
 
-export default Posts
+export default UserProfile
