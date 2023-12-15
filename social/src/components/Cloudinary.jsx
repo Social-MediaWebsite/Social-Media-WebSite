@@ -3,7 +3,7 @@ import { Image } from 'cloudinary-react';
 import './css/Cloudinary.css'
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 
-function Cloudinary() {
+function Cloudinary({setImg}) {
   const cloudName = 'dcq9dwrsb';
   const presetName = 'l4ng65bl';
   const [image, setImage] = useState('');
@@ -25,6 +25,7 @@ function Cloudinary() {
 
       const data = await response.json();
       setImage(data.secure_url); 
+      setImg(data.secure_url); 
     } catch (error) {
       console.error('Error uploading image: ', error);
     }

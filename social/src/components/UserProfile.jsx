@@ -5,7 +5,7 @@ import Likes from './Likes'
 import './css/Post.css'
 import './css/UserProfile.css'
 import { FaComments } from "react-icons/fa";
-function UserProfile() {
+function UserProfile({userInfo}) {
 const [oneUser,setOneUser]=useState([])
  const [showComment,setShowComment] = useState(false)
   const [idpost,setIdPost] = useState(0)
@@ -14,7 +14,7 @@ const [oneUser,setOneUser]=useState([])
 
 
  useEffect(()=>{
-    axios.get('http://localhost:3000/api/socialMedia/postes/user/2').then((ress)=>{
+    axios.get(`http://localhost:3000/api/socialMedia/postes/user/${userInfo.userId}`).then((ress)=>{
      console.log(ress.data)
      setOneUser(ress.data)
    }).catch((error)=>{
@@ -37,9 +37,9 @@ const [oneUser,setOneUser]=useState([])
  return (
     <div className="main-container">
       <div className='profile'>
-        <img className='user-image1' src="https://shorturl.at/egA37" alt="" />   
-        <h2>userName</h2>
-        <p>userEmail</p>
+        <img className='user-image1' src={userInfo.userImage} alt="" />   
+        <h2>{userInfo.userName}</h2>
+        <p>{userInfo.userEmail}</p>
       </div>
      {oneUser.map((e,i)=>(
       <div key={i} className="post-container-userP">
