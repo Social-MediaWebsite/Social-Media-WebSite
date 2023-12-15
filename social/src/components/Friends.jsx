@@ -1,6 +1,7 @@
 import React from 'react'
 import './css/friends.css'
 
+
 function Friends({data}) {
   return (
     <div className='friends-container'>
