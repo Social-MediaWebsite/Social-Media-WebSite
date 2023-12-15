@@ -25,7 +25,6 @@ const [addComment,setAddComment]=useState({})
               <h6>{e.userName}</h6>
               <p>{e.co_updatedAt}</p>
             </div>
-
             <div className='co-info'>
             <p>{e.co_Content}</p>
             <img src={e.co_Image} alt="" />

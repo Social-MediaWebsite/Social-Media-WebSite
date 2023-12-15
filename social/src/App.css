@@ -20,7 +20,6 @@ header {
   width: 50px;
   height: 50px;
 }
-
 .nav-search {
   background-color: rgb(199, 194, 207);
   display: flex;
@@ -39,7 +38,6 @@ header {
   border:0;
   outline:none
 }
-
 .nav-links {
   display: flex;
 }

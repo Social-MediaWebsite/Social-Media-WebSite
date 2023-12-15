@@ -12,7 +12,7 @@ function Friends({data}) {
         </div>
       ))}
     </div>
-  )
+)
 }
 
 export default Friends

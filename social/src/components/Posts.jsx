@@ -20,7 +20,6 @@ const [content,setContent]=useState("")
       setPostData(ress.data)
     })
  },[])
-
  const hundelComment=(id)=>{ 
   setIdComment(id)
     axios.get(`http://localhost:3000/api/socialMedia/comments/post/${id}`).then((ress)=>{
@@ -67,6 +66,7 @@ const [content,setContent]=useState("")
       </div>
      ))}
      </div>
+
     </div>
  )
 }
