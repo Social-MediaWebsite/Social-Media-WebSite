@@ -30,17 +30,17 @@ const deleteUser=(user,id,cb)=>{
 }
 
 
-const getUserByEmail = (email, cb) => {
-    const sql = 'SELECT * FROM users WHERE userEmail = ?';
-    connection.query(sql, [email], (err, result) => {
-      if (err) {
-        cb(err, null);
-      } else {
-        const user = result[0];
-        cb(null, user);
-      }
-    });
-  };
+// const getUserByEmail = (email, cb) => {
+//     const sql = 'SELECT * FROM users WHERE userEmail = ?';
+//     connection.query(sql, [email], (err, result) => {
+//       if (err) {
+//         cb(err, null);
+//       } else {
+//         const user = result[0];
+//         cb(null, user);
+//       }
+//     });
+//   };
 
 const getUserById = (id, cb) => {
     const sql = 'SELECT * FROM users WHERE userId = ?';
@@ -56,5 +56,4 @@ const getUserById = (id, cb) => {
 
 
 
-module.exports={getAllUsers,AddUser,updateUser,deleteUser, getUserByEmail, getUserById}
-
+module.exports={getAllUsers,AddUser,updateUser,deleteUser, getUserById}

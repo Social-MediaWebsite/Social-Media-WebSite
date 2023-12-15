@@ -1,0 +1,49 @@
+/* Style the comments container */
+.comments-container {
+    margin-top: 16px;
+}
+
+/* Style each individual comment */
+.comments-container > div {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+/* Style the user information in the comment */
+.comments-container > div > div:first-child {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+/* Style the user image in the comment */
+.comments-container > div > div:first-child img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* Style the comment content */
+.comments-container > div > div:nth-child(2) {
+    margin-bottom: 8px;
+}
+
+/* Style the actions container in the comment */
+.comments-container > div > div:last-child {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Style the reply and delete actions in the comment */
+.comments-container > div > div:last-child h5 {
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+/* Style the reply and delete actions in the comment on hover */
+.comments-container > div > div:last-child h5:hover {
+    text-decoration: underline;
+}
