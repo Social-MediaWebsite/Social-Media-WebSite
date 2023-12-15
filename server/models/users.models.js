@@ -52,5 +52,5 @@ const getUserById = (id, cb) => {
     });
   };
 
-module.exports={getAllUsers,AddUser,updateUser,deleteUser, getUserById}
 
+module.exports={getAllUsers,AddUser,updateUser,deleteUser, getUserById}

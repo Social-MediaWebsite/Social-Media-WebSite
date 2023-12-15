@@ -69,5 +69,4 @@ const getById = (req, res) => {
       }
     });
   };
-
 module.exports={getAll,addOne,updateOne,deleteOne,getById}

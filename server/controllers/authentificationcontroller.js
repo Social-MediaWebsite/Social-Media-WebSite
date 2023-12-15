@@ -16,8 +16,13 @@ const registerUser = async (req, res) => {
       userName,
       userEmail,
       userPassword: hashedPassword,
-      userImage: 'https://shorturl.at/egA37',}
-     addOne({ body: newUser }, res);
+      userImage: 'https://shorturl.at/egA37',
+
+    };
+    
+
+    // Call addOne with req and res
+    addOne({ body: newUser }, res);
   } catch (error) {
     res.status(500).json({ error: 'Error' });
   }

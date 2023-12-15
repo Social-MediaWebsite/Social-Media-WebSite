@@ -11,5 +11,6 @@ userRouter.get('/users', authenticateUser, getAll);
 userRouter.put('/users/:id', authenticateUser, updateOne);
 userRouter.delete('/users/:id', authenticateUser, deleteOne);
 
+
 module.exports = userRouter; 
 

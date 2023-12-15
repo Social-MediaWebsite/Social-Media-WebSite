@@ -60,6 +60,7 @@ function App() {
    })
  },[id])
 console.log("id",id)
+
   return (
     <div className="App">
       <header>
