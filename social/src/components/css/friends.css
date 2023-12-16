@@ -1,0 +1,56 @@
+ .friends-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  
+  .friends-item {
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+    
+  .friends-item img {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .friends-item h3 {
+    margin: 0;
+  }
+  
+  .friends-item img {
+    background-color: #ccc;
+}
+  button {
+    padding: 5px 10px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #cc0000;
+  }
+  
+  .new-friends-list {
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+  
+  .new-friends-list p {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .new-friends-list h6 {
+    margin-bottom: 5px;
+  }
+  

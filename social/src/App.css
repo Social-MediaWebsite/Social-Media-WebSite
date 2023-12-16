@@ -1,12 +1,20 @@
 .App {
   text-align: center;
 }
-
-header {
-  background-color: #333;
-  padding: 10px;
+body {
+  background-color: rgb(241, 237, 246);
 }
 
+header {
+  background-color: rgba(250, 249, 249, 0.836);
+  padding: 10px;
+  width: 100%;
+  position: fixed;
+}
+
+.flex {
+  display: flex;
+}
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -17,13 +25,30 @@ header {
   width: 50px;
   height: 50px;
 }
+.nav-search {
+  background-color: rgb(199, 194, 207);
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #53a8b6;
+  width: 400px;
+  margin-left:100px;
+  gap:15px;
+  height: 25px;
+  border-radius: 20px;
+  padding-left: 5px;
 
+}
+.nav-search input {
+  background-color: transparent;
+  border:0;
+  outline:none
+}
 .nav-links {
   display: flex;
 }
 
 .nav-link {
-  color: white;
+  color: rgb(71, 10, 83);
   text-decoration: none;
   padding: 10px;
   margin-right: 10px;

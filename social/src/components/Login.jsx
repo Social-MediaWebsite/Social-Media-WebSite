@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext/authContext.jsx';
 
-function Login() {
+function Login({setId}) {
   const { setToken } = useAuth();
   const navigate = useNavigate();
 
@@ -30,6 +30,7 @@ function Login() {
         setErrorMessage('');
         setLoading(false);
         // Redirect user to the home page after successful login
+        setId(userId)
         navigate(`/Home/${userId}`);
       } else {
         setErrorMessage('Login failed. Please check your credentials.');

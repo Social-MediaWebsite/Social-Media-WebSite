@@ -4,7 +4,8 @@ const { addOne} = require('./users.controllers');
 const connection =require('../database-mysql/index')
 
 const generateToken = (userId, userName) => {
-  return jwt.sign({ userId, userName }, 'secretKey', { expiresIn: '2h' });
+  const expiresIn = 60 * 60 * 24;
+  return jwt.sign({ userId, userName }, 'secretKey', { expiresIn: expiresIn });
 };
 
 
