@@ -23,7 +23,8 @@ function Posts() {
       setPostData(ress.data)
     })
  },[refrPo])
- const hundelComment=(ids)=>{ 
+    
+  const hundelComment=(ids)=>{ 
   setIdComment(ids)
     axios.get(`http://localhost:3000/api/socialMedia/comments/post/${ids}`).then((ress)=>{
      console.log(ress.data)
@@ -31,6 +32,17 @@ function Posts() {
      
    })  
  }
+
+  const hundelLike=(ids)=>{ 
+  setIdComment(ids)
+    axios.get(`http://localhost:3000/api/socialMedia/comments/post/${ids}`).then((ress)=>{
+     console.log(ress.data)
+     setCommentData(ress.data)
+     
+   })  
+ }
+
+
 const handleAdd=(obj)=>{
   axios.post(`http://localhost:3000/api/socialMedia/postes`,obj).then((ress)=>{
      console.log(ress.data)
@@ -73,7 +85,7 @@ const handleDelete=(post)=>{
         </div>
         <div className="actions-container">
           <div></div>
-          <Likes/> 
+          <Likes postId={e.postId}/> 
           <FaComments  onClick={()=>{
           setShowComment(!showComment);
           hundelComment(e.postId)
