@@ -5,6 +5,8 @@ import Likes from './Likes'
 import './css/Post.css'
 import './css/UserProfile.css'
 import { FaComments } from "react-icons/fa";
+import Head from './Head'
+
 function UserProfile({userInfo}) {
 const [oneUser,setOneUser]=useState([])
  const [showComment,setShowComment] = useState(false)
@@ -35,6 +37,8 @@ const [oneUser,setOneUser]=useState([])
  }
  
  return (
+  <div>
+     <Head/>
     <div className="main-container">
       <div className='profile'>
         <img className='user-image1' src={userInfo.userImage} alt="" />   
@@ -67,7 +71,8 @@ const [oneUser,setOneUser]=useState([])
       </div>
      ))}
     </div>
- )
+    </div>
+     )
 }
 
 export default UserProfile

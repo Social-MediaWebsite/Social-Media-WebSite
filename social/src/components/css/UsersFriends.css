@@ -1,0 +1,10 @@
+.fr-side-container {
+    border: 2px solid red;
+    position:fixed ;
+    height: 500px;
+    width: 20%;
+    margin-top: 70px;
+    right: 10px;
+
+    
+}

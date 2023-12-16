@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <header className='navbar-content'>
       <div className='userInfo'>
-        <img src='https://shorturl.at/egA37'  alt="" />
+        <img src="userImage"  alt="" />
       <h2>userName</h2>
       </div>
         <nav className="navbar-links">

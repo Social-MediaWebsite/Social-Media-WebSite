@@ -1,7 +1,8 @@
 import React, { useCallback } from 'react';
 import './css/friends.css';
 import axios from 'axios';
-
+import Head from './Head';
+import Navbar from './Navbar';
 
 function Friends({ data,userAdd, setRefresh, refresh,id}) {
 
@@ -25,6 +26,10 @@ console.log(id)
 
   return (
     <div>
+     <Head/>
+     <div className='flex'>
+      <Navbar/>
+    <div className=''>
        <h1>Friends</h1>
       <div className='friends-container'>
        
@@ -48,6 +53,8 @@ console.log(id)
           </div>
         ))}
       </div>
+      </div>
+    </div>
     </div>
   )
 }
