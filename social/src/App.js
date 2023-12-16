@@ -13,7 +13,7 @@ import Friends from "./components/Friends";
 import UserProfile from "./components/UserProfile";
 
 function App() {
-  const [data,setData]=useState([])
+  // const [data,setData]=useState([])
   const [friends,setFriends]=useState([])
   const [userAdd,setUsersAdd]=useState([])
   const [userData, setUserData] = useState(null);
@@ -32,27 +32,27 @@ function App() {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
         });
-        // console.log("resss",response.data)
 
         setUserData(response.data);
-        console.log("user",userData);
+        
       } catch (error) {
         console.error('Error fetching user data', error);
       }
     };
 
     fetchUserData();
+    console.log("user", userData);
     
-  }, [id]); 
+  }, [id]);  
 
-  useEffect(()=>{
-     axios.get('http://localhost:3000/api/socialMedia/users').then((ress)=>{
-      console.log(ress.data)
-      setData(ress.data)
-    }).catch((error)=>{
-      console.log(error)
-    })
-  },[])
+  // useEffect(()=>{
+  //    axios.get('http://localhost:3000/api/socialMedia/users').then((ress)=>{
+  //     console.log(ress.data)
+  //     setData(ress.data)
+  //   }).catch((error)=>{
+  //     console.log(error)
+  //   })
+  // },[])
   const handleArray=(friendss)=>{
     const test=friendss.map((ele)=>{return ele.friendsId})
     console.log("id",id)
@@ -63,7 +63,6 @@ function App() {
       setDataUsers(ress.data)
     })
   }
-
   useEffect(()=>{
     axios.get(`http://localhost:3000/api/socialMedia/friends/${id}`).then((ress)=>{
      console.log("friends",ress.data)
@@ -81,8 +80,8 @@ function App() {
         <Route path="/" element={<Login  setId={setId}/>} />
         <Route path='/Home/:id' element={<Home  dataUsers={dataUsers} dataFriends={dataFriends}/>} />
         <Route path='/Friends' element={<Friends data={friends} userAdd={userAdd} setRefresh={setRefresh} refresh={refresh} id={id}/>}/>
-        <Route path='/Posts' element={<Posts />} />
-        <Route path='/Signup' element={<Signup/>}></Route>
+        <Route path='/Posts' element={<Posts  />} />
+        <Route path='/Signup' element={<Signup setId={setId} />}></Route>
         <Route path='/UserProfile' element={<UserProfile userInfo={userData}/>}></Route>
       </Routes>
     </div>

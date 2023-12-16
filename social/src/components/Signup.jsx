@@ -5,7 +5,7 @@ import { useAuth } from '../AuthContext/authContext';
 import './css/Signup.css';
 import image from '../assets/letter1.png';
 
-function Signup() {
+function Signup({setId}) {
   const { setToken } = useAuth();
   const navigate = useNavigate();
 
@@ -28,6 +28,7 @@ function Signup() {
 
       if (userEmail && userName && token) {
         setToken(token);
+        setId(userId);
         setSuccessMessage('Registration successful!');
         setErrorMessage('');
 
