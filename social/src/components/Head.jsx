@@ -2,12 +2,13 @@ import React from 'react'
 import { NavLink} from 'react-router-dom';
 import image from '../assets/letter1.png'
 import { IoSearch } from "react-icons/io5";
+import logo from '../assets/logos.png'
 
 function Head({id}) {
   return (
     <header>
         <nav className="navbar">
-          <img src={''} alt="Logo" className="logo"/>
+          <img src={logo} alt="Logo" className="logo"/>
           <div className="nav-search">
           <IoSearch />
           <input type="search" placeholder='hello' />

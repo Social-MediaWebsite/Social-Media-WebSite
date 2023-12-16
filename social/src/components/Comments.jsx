@@ -17,6 +17,12 @@ const  Comments=({commentData,hundelComment})=> {
     hundelComment(commentData[0].po_postId)
   })
  }
+
+ const deleteComment=(commentId)=>{
+  axios.delete(`http://localhost:3000/api/socialMedia/comments/${commentId}`).then((ress)=>{
+    hundelComment(commentData[0].po_postId)
+  })
+ }
  console.log(id)
   return (
     <div className="comments-container">
@@ -45,7 +51,7 @@ const  Comments=({commentData,hundelComment})=> {
 
             </div>
             <div className='del-rep'>
-              <h5 >reply</h5> <h5 >delete</h5>
+             {(e.co_userId==id)&&<h5 onClick={()=>{deleteComment(e.commentId)}} >delete</h5>}
             </div>
           </div>
         ))}

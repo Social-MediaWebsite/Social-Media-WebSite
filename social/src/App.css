@@ -12,6 +12,12 @@ header {
   position: fixed;
 }
 
+.all-container{
+  margin-top: -20px;
+}
+.bar {
+  height:100px ;
+}
 .flex {
   display: flex;
 }
@@ -20,9 +26,12 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+.logo-login img{
+  width: 70px;
+
+}
 
 .logo {
-  width: 50px;
   height: 50px;
 }
 .nav-search {

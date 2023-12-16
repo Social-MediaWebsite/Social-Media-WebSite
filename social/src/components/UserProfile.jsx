@@ -37,9 +37,10 @@ const [oneUser,setOneUser]=useState([])
  }
  
  return (
-  <div>
+  <div >
      <Head/>
-    <div className="main-container">
+    <div className="main-container-user">
+      <div className='test'>
       <div className='profile'>
         <img className='user-image1' src={userInfo.userImage} alt="" />   
         <h2>{userInfo.userName}</h2>
@@ -70,6 +71,7 @@ const [oneUser,setOneUser]=useState([])
 
       </div>
      ))}
+    </div>
     </div>
     </div>
      )

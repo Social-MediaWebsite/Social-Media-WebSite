@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext/authContext';
 import './css/Signup.css';
-import image from '../assets/letter1.png';
+import image from '../assets/logo2.png';
 
 function Signup({setId}) {
   const { setToken } = useAuth();
