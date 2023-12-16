@@ -63,7 +63,6 @@ function App() {
       setDataUsers(ress.data)
     })
   }
-
   useEffect(()=>{
     axios.get(`http://localhost:3000/api/socialMedia/friends/${id}`).then((ress)=>{
      console.log("friends",ress.data)
