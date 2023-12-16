@@ -111,7 +111,7 @@
     border-radius: 15px;
     background-color: #53a8b6;
     padding-top: 2px;
-
+   cursor: pointer;
 }
 
 .value-container input {

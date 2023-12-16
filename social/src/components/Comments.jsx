@@ -18,6 +18,7 @@ console.log(commentData[0].po_postId);
     hundelComment(commentData[0].po_postId)
   })
  }
+ console.log(id)
   return (
     <div className="comments-container">
       <div className='add-container'>
