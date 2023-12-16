@@ -12,7 +12,7 @@ const  Comments=({commentData,hundelComment})=> {
   const [comment,setComment]=useState("")
   const {id}=useParams()
 
-
+console.log(commentData[0].po_postId);
  const newComment=(newObj)=>{
   axios.post('http://localhost:3000/api/socialMedia/comments',newObj).then((ress)=>{
     hundelComment(commentData[0].po_postId)
@@ -40,7 +40,6 @@ const  Comments=({commentData,hundelComment})=> {
               <h6>{e.userName}</h6>
               <p>{e.co_updatedAt}</p>
             </div>
-
             <div className='co-info'>
             <p>{e.co_Content}</p>
             <img src={e.co_Image} alt="" />

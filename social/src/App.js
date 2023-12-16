@@ -71,8 +71,7 @@ function App() {
      console.log(error)
    })
  },[id,refresh])
-console.log("id",id)
-
+  
   return (
     <div className="App">
       <header>
