@@ -9,6 +9,11 @@ header {
   background-color: rgba(250, 249, 249, 0.836);
   padding: 10px;
   width: 100%;
+  position: fixed;
+}
+
+.flex {
+  display: flex;
 }
 .navbar {
   display: flex;

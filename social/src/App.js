@@ -11,7 +11,6 @@ import Signup from './components/Signup';
 import axios from 'axios';
 import Friends from "./components/Friends";
 import UserProfile from "./components/UserProfile";
-import { IoSearch } from "react-icons/io5";
 
 function App() {
   const [data,setData]=useState([])
@@ -20,6 +19,8 @@ function App() {
   const [userData, setUserData] = useState(null);
   const [id,setId]=useState(0)
   const [refresh,setRefresh]=useState(false)
+  const [dataUsers,setDataUsers]=useState([])
+  const [dataFriends,setDataFriends]=useState([])
   // const { ids } = useParams(); //id is getting well
   // console.log("id",id);
 
@@ -59,6 +60,7 @@ function App() {
     axios.put('http://localhost:3000/api/socialMedia/friend',{friends:[...test,id]}).then((ress)=>{
       console.log(ress.data)
       setUsersAdd(ress.data)
+      setDataUsers(ress.data)
     })
   }
 
@@ -66,36 +68,19 @@ function App() {
     axios.get(`http://localhost:3000/api/socialMedia/friends/${id}`).then((ress)=>{
      console.log("friends",ress.data)
      setFriends(ress.data)
+     setDataFriends(ress.data)
      ress.data.length?handleArray(ress.data):console.log("no length")
    }).catch((error)=>{
      console.log(error)
    })
  },[id,refresh])
-  
+ console.log("hhh",userData)
   return (
     <div className="App">
-      <header>
-        <nav className="navbar">
-          <img src={''} alt="Logo" className="logo"/>
-          <div className="nav-search">
-          <IoSearch />
-          <input type="search" placeholder='hello' />
-          </div>
-          <div className="nav-links">
-            <NavLink to={'/'} className="nav-link">Login</NavLink>
-            <NavLink to={`/Home/${id}`} className="nav-link">Home</NavLink>
-            <NavLink to={'/Friends'} className="nav-link">Friends</NavLink>
-            {/* <NavLink to={'/Profile'} className="nav-link">Profile</NavLink> */}
-            <NavLink to={'/UserProfile'} className="nav-link">Your Profile</NavLink>
-          </div>
-        </nav>
-      </header>
-
       <Routes>
         <Route path="/" element={<Login  setId={setId}/>} />
-        <Route path='/Home/:id' element={<Home />} />
+        <Route path='/Home/:id' element={<Home  dataUsers={dataUsers} dataFriends={dataFriends}/>} />
         <Route path='/Friends' element={<Friends data={friends} userAdd={userAdd} setRefresh={setRefresh} refresh={refresh} id={id}/>}/>
-        {/* <Route path='/Profile' element={<Profile />} /> */}
         <Route path='/Posts' element={<Posts />} />
         <Route path='/Signup' element={<Signup/>}></Route>
         <Route path='/UserProfile' element={<UserProfile userInfo={userData}/>}></Route>

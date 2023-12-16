@@ -12,7 +12,6 @@ const  Comments=({commentData,hundelComment})=> {
   const [comment,setComment]=useState("")
   const {id}=useParams()
 
-console.log(commentData[0].po_postId);
  const newComment=(newObj)=>{
   axios.post('http://localhost:3000/api/socialMedia/comments',newObj).then((ress)=>{
     hundelComment(commentData[0].po_postId)
