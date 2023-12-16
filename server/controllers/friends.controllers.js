@@ -1,4 +1,4 @@
-const {getFriendsOfUser,addFriend,deleteFriend}=require('../models/friends.models')
+const {getFriendsOfUser,addFriend,deleteFriend,getUserNF}=require('../models/friends.models')
 
 
 const getFriends=(req,res)=>{
@@ -15,10 +15,15 @@ const addFr=(req,res)=>{
 
 
 const deleteFr=(req,res)=>{
-    deleteFriend(req.params.id,(err,result)=>{
+    deleteFriend(req.params.id,req.body.friendsId,(err,result)=>{
         err?res.status(500).send(err):res.json(result)
     })
 }
 
+const getUsersNF=(req,res)=>{
+    getUserNF(req.body.friends,(err,result)=>{
+        err?res.status(500).send(err):res.json(result)
+    })
+  }
 
-module.exports={getFriends,addFr,deleteFr}
+module.exports={getFriends,addFr,deleteFr,getUsersNF}
