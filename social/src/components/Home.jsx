@@ -4,7 +4,6 @@ import Posts from './Posts';
 import './css/Post.css';
 import Head from './Head';
 import UsersFriends from './UsersFriends';
-import Pub from './Pub';
 
 function Home({dataUsers,dataFriends}) {
   
@@ -14,7 +13,6 @@ function Home({dataUsers,dataFriends}) {
     <div>
       <Head />
      <div className='home'>
-      <Pub/>
       <Posts />
       <UsersFriends dataUsers={dataUsers} dataFriends={dataFriends}/>
     </div>

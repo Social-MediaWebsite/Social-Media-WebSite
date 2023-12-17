@@ -26,7 +26,7 @@ const addLikes=(req,res)=>{
 
 
 const deleteLike=(req,res)=>{
-    deleteLikes(req.params.id,(err,result)=>{
+    deleteLikes(req.params.id,req.body.po_postId,(err,result)=>{
         err?res.status(500).send(err):res.json(result)
     })
 }

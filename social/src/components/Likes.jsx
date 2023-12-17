@@ -25,12 +25,17 @@ function Likes({postId}) {
       setRefresh(!refresh)
     })
   }
+  const handleDelete=(li,po)=>{
+    axios.delete(`http://localhost:3000/api/socialMedia/like/${li}`,{data:{po_postId:po}}).then((res)=>{
+      setRefresh(!refresh)
+    })
+  }
 
   console.log("hhh",usersLikes)
   return (
     <div>
       {(usersLikes.includes(parseInt(id)))?
-      <FcLike onClick={()=>{console.log(usersLikes)}} />:
+      <FcLike onClick={()=>{handleDelete(id,postId)}} />:
       <FcLikePlaceholder onClick={()=>{handleAdd({
         po_postId:postId,
         li_userId:id

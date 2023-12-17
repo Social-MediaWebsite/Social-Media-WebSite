@@ -4,11 +4,8 @@ import axios from 'axios';
 import Head from './Head';
 
 function Friends({ data,userAdd, setRefresh, refresh,id}) {
-
-console.log(id)
+  
   const handleDelete = (obj) => {
-    console.log("friendId",obj)
-    console.log('id',id)
     axios.delete(`http://localhost:3000/api/socialMedia/friend/${id}`,{data:obj})
       .then(() => {
         setRefresh(!refresh);
