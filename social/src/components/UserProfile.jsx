@@ -6,6 +6,7 @@ import './css/Post.css'
 import './css/UserProfile.css'
 import { FaComments } from "react-icons/fa";
 import Head from './Head'
+import Cloudinary from './Cloudinary'
 
 function UserProfile({userInfo}) {
 const [oneUser,setOneUser]=useState([])
@@ -13,8 +14,9 @@ const [oneUser,setOneUser]=useState([])
   const [idpost,setIdPost] = useState(0)
   const [commentData,setCommentData] = useState([])
   const [idcomment,setIdComment] = useState(0)
-
-
+  const [ref,setRef]=useState(false)
+ const [img,setImg]=useState("")
+ console.log(img)
  useEffect(()=>{
     axios.get(`http://localhost:3000/api/socialMedia/postes/user/${userInfo.userId}`).then((ress)=>{
      console.log(ress.data)
@@ -22,7 +24,7 @@ const [oneUser,setOneUser]=useState([])
    }).catch((error)=>{
      console.log(error)
    })
-  },[])
+  },[ref])
 
 
 
@@ -36,13 +38,20 @@ const [oneUser,setOneUser]=useState([])
    
  }
  
+ const hundleUpdate=(img)=>{
+  axios.put(`http://localhost:3000/api/socialMedia/users/${userInfo.userId}`,{userImage:img}).then(ress=>{
+    setRef(!ref)
+  }).catch((err)=>{console.error(err)})
+ }
  return (
   <div >
      <Head/>
     <div className="main-container-user">
       <div className='test'>
       <div className='profile'>
-        <img className='user-image1' src={userInfo.userImage} alt="" />   
+        <img className='user-image1' src={userInfo.userImage} alt="" />  
+        <Cloudinary setImg={setImg}/> 
+        <button onClick={()=>{hundleUpdate(img)}}>update image</button>
         <h2>{userInfo.userName}</h2>
         <p>{userInfo.userEmail}</p>
       </div>
