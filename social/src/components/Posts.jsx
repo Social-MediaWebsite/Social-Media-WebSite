@@ -33,14 +33,6 @@ function Posts() {
    })  
  }
 
-  const hundelLike=(ids)=>{ 
-  setIdComment(ids)
-    axios.get(`http://localhost:3000/api/socialMedia/comments/post/${ids}`).then((ress)=>{
-     console.log(ress.data)
-     setCommentData(ress.data)
-     
-   })  
- }
 
 
 const handleAdd=(obj)=>{

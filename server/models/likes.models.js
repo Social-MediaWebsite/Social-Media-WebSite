@@ -27,8 +27,8 @@ const AddLikes=(like,cb)=>{
     })
 }
 
-const deleteLikes=(id,cb)=>{
-    const sql=`DELETE FROM comments WHERE commentId=${id} `
+const deleteLikes=(idUser,idPost,cb)=>{
+    const sql=`DELETE FROM likes WHERE li_userId=${idUser} AND po_postId=${idPost}`
     connection.query(sql,(err,result)=>{
         cb(err,result)
     })

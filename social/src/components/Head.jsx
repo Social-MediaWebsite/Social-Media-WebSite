@@ -5,6 +5,7 @@ import { IoSearch } from "react-icons/io5";
 import logo from '../assets/logos.png'
 
 function Head({id}) {
+  console.log(id)
   return (
     <header>
         <nav className="navbar">
@@ -17,7 +18,7 @@ function Head({id}) {
             <NavLink to={'/'} className="nav-link">Login</NavLink>
             <NavLink to={`/Home/${id}`} className="nav-link">Home</NavLink>
             <NavLink to={'/Friends'} className="nav-link">Friends</NavLink>
-            {/* <NavLink to={'/Profile'} className="nav-link">Profile</NavLink> */}
+            <NavLink to={'/Logout'} className="nav-link">Logout</NavLink> 
             <NavLink to={'/UserProfile'} className="nav-link">Your Profile</NavLink>
           </div>
         </nav>

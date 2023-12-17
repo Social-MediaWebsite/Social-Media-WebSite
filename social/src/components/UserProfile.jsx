@@ -2,65 +2,68 @@ import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import Comments from './Comments'
 import Likes from './Likes'
+import Cloudinary from './Cloudinary'
+import './css/Post.css'
 import './css/Post.css'
 import './css/UserProfile.css'
 import { FaComments } from "react-icons/fa";
 import Head from './Head'
-import Cloudinary from './Cloudinary'
+import { useParams } from 'react-router-dom'
+
 
 function UserProfile({userInfo}) {
-const [oneUser,setOneUser]=useState([])
+  const [oneUser,setOneUser]=useState([])
  const [showComment,setShowComment] = useState(false)
-  const [idpost,setIdPost] = useState(0)
-  const [commentData,setCommentData] = useState([])
-  const [idcomment,setIdComment] = useState(0)
-  const [ref,setRef]=useState(false)
- const [img,setImg]=useState("")
- console.log(img)
+ const [commentData,setCommentData] = useState([])
+ const [idcomment,setIdComment] = useState(0)
+ const [refrPo,setRefrPo]=useState(false)
+ const {id}=useParams()
+
  useEffect(()=>{
-    axios.get(`http://localhost:3000/api/socialMedia/postes/user/${userInfo.userId}`).then((ress)=>{
-     console.log(ress.data)
-     setOneUser(ress.data)
-   }).catch((error)=>{
-     console.log(error)
-   })
-  },[ref])
-
-
-
- const hundelComment=(id)=>{ 
-  setIdComment(id)
-    axios.get(`http://localhost:3000/api/socialMedia/comments/post/${id}`).then((ress)=>{
+  axios.get(`http://localhost:3000/api/socialMedia/postes/user/${userInfo.userId}`).then((ress)=>{
+   console.log(ress.data)
+   setOneUser(ress.data)
+ }).catch((error)=>{
+   console.log(error)
+ })
+},[])
+    
+  const hundelComment=(ids)=>{ 
+  setIdComment(ids)
+    axios.get(`http://localhost:3000/api/socialMedia/comments/post/${ids}`).then((ress)=>{
      console.log(ress.data)
      setCommentData(ress.data)
      
-   })
-   
+   })  
  }
- 
- const hundleUpdate=(img)=>{
-  axios.put(`http://localhost:3000/api/socialMedia/users/${userInfo.userId}`,{userImage:img}).then(ress=>{
-    setRef(!ref)
-  }).catch((err)=>{console.error(err)})
- }
+
+
+const handleDelete=(post)=>{
+  axios.delete(`http://localhost:3000/api/socialMedia/postes/${post}`).then((ress)=>{
+     console.log(ress.data)
+     setRefrPo(!refrPo)
+   }) 
+}
+
  return (
-  <div >
-     <Head/>
+  <div>
+    <Head/>
     <div className="main-container-user">
       <div className='test'>
       <div className='profile'>
-        <img className='user-image1' src={userInfo.userImage} alt="" />  
-        <Cloudinary setImg={setImg}/> 
-        <button onClick={()=>{hundleUpdate(img)}}>update image</button>
+        <img className='user-image1' src={userInfo.userImage} alt="" />   
         <h2>{userInfo.userName}</h2>
         <p>{userInfo.userEmail}</p>
       </div>
+      </div>
+      <div className='postes-container'>
      {oneUser.map((e,i)=>(
-      <div key={i} className="post-container-userP">
+      <div key={i} className="post-container">
         <div className="user-info-container">
           <img className="user-image" src={e.userImage} alt='hi' />
-          <h3 onClick={()=>{}}>{e.userName}</h3>
+          <h3 >{e.userName}</h3>
           <div>{e.po_updatedAt}</div>
+          {(e.po_userId==id)&&<button onClick={()=>{handleDelete(e.postId)}}>Delete</button>}
         </div>
         <div className="post-content-container">
           <div className='poContent'><h3>{e.po_content}</h3></div>
@@ -68,7 +71,7 @@ const [oneUser,setOneUser]=useState([])
         </div>
         <div className="actions-container">
           <div></div>
-          <Likes/> 
+          <Likes postId={e.postId}/> 
           <FaComments  onClick={()=>{
           setShowComment(!showComment);
           hundelComment(e.postId)
@@ -76,14 +79,14 @@ const [oneUser,setOneUser]=useState([])
           <div></div>
         </div>
 
-         {(showComment && e.postId===idcomment) && <Comments commentData={commentData}  /> }
+         {(showComment && e.postId===idcomment) && <Comments commentData={commentData} hundelComment={hundelComment}  /> }
 
       </div>
      ))}
+     </div>
+     </div>
     </div>
-    </div>
-    </div>
-     )
+ )
 }
 
 export default UserProfile

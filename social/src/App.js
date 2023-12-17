@@ -2,15 +2,13 @@ import React,{useState,useEffect}from "react"
 import './App.css';
 import {NavLink,Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
-import Profile from './components/Profile';
 import Posts from './components/Posts';
-import { useParams } from 'react-router-dom';
-// import Authentification from './components/Authentification';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import axios from 'axios';
 import Friends from "./components/Friends";
 import UserProfile from "./components/UserProfile";
+import Logout from './components/Logout'
 
 function App() {
   // const [data,setData]=useState([])
@@ -73,7 +71,6 @@ function App() {
      console.log(error)
    })
  },[id,refresh])
-
  console.log("hhh",userData)
   return (
     <div className="App">
@@ -84,6 +81,7 @@ function App() {
         <Route path='/Posts' element={<Posts  />} />
         <Route path='/Signup' element={<Signup setId={setId} />}></Route>
         <Route path='/UserProfile' element={<UserProfile userInfo={userData}/>}></Route>
+        <Route path='/Logout' element={<Logout id={id}/>}></Route>
       </Routes>
     </div>
   );

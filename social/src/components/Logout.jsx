@@ -1,20 +1,25 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext/authContext';
 
-function Logout() {
-  const history = useHistory();
+function Logout({id}) {
+  const navigate = useNavigate();
   const { clearToken } = useAuth();
 
   const handleLogout = () => {
     clearToken(); // this function used to log the user out
     
-    history.push('/login');// Redirect the user to the login page
+    navigate('/'); // Redirect the user to the login page
   };
+  const handleHome =()=>{
+    navigate(`/Home/${id}`)
+  }
 
   return (
-    <div>
-      <button onClick={handleLogout}>Logout</button>
+    <div className='confirmation-dialog'>
+      <h1>Are you sure</h1>
+      <button onClick={handleLogout}>Yes</button>
+      <button onClick={handleHome}>No</button>
     </div>
   );
 }
