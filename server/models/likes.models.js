@@ -14,7 +14,7 @@ const getLikesOfPost=(id,cb)=>{
 }
 
 const getCountLikesOfPost=(id,cb)=>{
-    const sql=`SELECT COUNT(idlikes) FROM likes WHERE po_postId=${id}`
+    const sql=`SELECT COUNT(idlikes) AS count FROM likes WHERE po_postId=${id}`
     connection.query(sql,(err,result)=>{
         cb(err,result)
     })

@@ -1,12 +1,15 @@
 
-.main-container {
+.main-container-user {
+    margin-top: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 0px;
    }
-   
+.test {
+    margin-top: 100px ;
+}
    .profile {
     display: flex;
     flex-direction: column;
