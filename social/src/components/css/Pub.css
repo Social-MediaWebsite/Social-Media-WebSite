@@ -1,0 +1,16 @@
+
+  video {
+    margin-top: 80px;
+    width: 22%; 
+    height: 450px; 
+    position: fixed;
+    border-radius: 5px;
+   margin-left: 2%;
+   outline: none;
+  }
+
+  video::-webkit-media-controls {
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: white; 
+    border-radius: 5px; 
+  }

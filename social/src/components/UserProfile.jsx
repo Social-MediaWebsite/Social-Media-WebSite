@@ -47,7 +47,7 @@ const handleDelete=(post)=>{
 
  return (
   <div>
-    <Head/>
+    <Head userData={userInfo} id={userInfo.userId}/>
     <div className="main-container-user">
       <div className='test'>
       <div className='profile'>

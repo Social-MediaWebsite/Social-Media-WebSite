@@ -15,6 +15,7 @@ function Posts() {
  const [img,setImg]=useState('')
  const [content,setContent]=useState("")
  const [refrPo,setRefrPo]=useState(false)
+ const [idPost,setIdPost]=useState(false)
  const {id}=useParams()
 
  useEffect(()=>{
@@ -81,11 +82,12 @@ const handleDelete=(post)=>{
           <FaComments  onClick={()=>{
           setShowComment(!showComment);
           hundelComment(e.postId)
+          setIdPost(e.postId)
           }}/>  
           <div></div>
         </div>
 
-         {(showComment && e.postId===idcomment) && <Comments commentData={commentData} hundelComment={hundelComment}  /> }
+         {(showComment && e.postId===idcomment) && <Comments postId={idPost} commentData={commentData} hundelComment={hundelComment}  /> }
 
       </div>
      ))}

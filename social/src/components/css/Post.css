@@ -12,6 +12,10 @@
     flex-direction: column;
     align-items: center;
 }
+.nav-links img {
+    width: 35px;
+    border-radius: 50%;
+}
 
 .userInfo {
     display: flex;

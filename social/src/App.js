@@ -76,8 +76,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Login  setId={setId}/>} />
-        <Route path='/Home/:id' element={<Home  dataUsers={dataUsers} dataFriends={dataFriends}/>} />
-        <Route path='/Friends' element={<Friends data={friends} userAdd={userAdd} setRefresh={setRefresh} refresh={refresh} id={id}/>}/>
+        <Route path='/Home/:id' element={<Home userData={userData} dataUsers={dataUsers} dataFriends={dataFriends}/>} />
+        <Route path='/Friends' element={<Friends userData={userData} data={friends} userAdd={userAdd} setRefresh={setRefresh} refresh={refresh} id={id}/>}/>
         <Route path='/Posts' element={<Posts  />} />
         <Route path='/Signup' element={<Signup setId={setId} />}></Route>
         <Route path='/UserProfile' element={<UserProfile userInfo={userData}/>}></Route>

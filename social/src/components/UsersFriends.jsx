@@ -15,8 +15,8 @@ function UsersFriends({dataFriends,dataUsers}) {
     <h3>Friends</h3>
     <div>
       {dataFriends.map((el,i)=>(
-        <div key={i} className='friends-item' >
-          <div className=''><img src={el.userImage} alt="" /></div>
+        <div key={i} className='fr-item' >
+          <img src={el.userImage} alt="" />
           <div>
             <div>{el.userName}</div>
             <div>{el.userEmail}</div>
@@ -27,7 +27,7 @@ function UsersFriends({dataFriends,dataUsers}) {
      <h3>Other Users</h3>
      <div>
      {dataUsers.map((el,i)=>(
-        <div key={i} className='friends-item' >
+        <div key={i} className='fr-item us-item' >
           <div className=''><img src={el.userImage} alt="" /></div>
           <div>
             <div>{el.userName}</div>

@@ -3,16 +3,18 @@ import axios from 'axios';
 import Posts from './Posts';
 import './css/Post.css';
 import Head from './Head';
+import Pub from './Pub';
 import UsersFriends from './UsersFriends';
 
-function Home({dataUsers,dataFriends}) {
+function Home({userData,dataUsers,dataFriends}) {
   
 
 
   return (
     <div>
-      <Head />
+      <Head userData={userData}/>
      <div className='home'>
+      <Pub/>
       <Posts />
       <UsersFriends dataUsers={dataUsers} dataFriends={dataFriends}/>
     </div>

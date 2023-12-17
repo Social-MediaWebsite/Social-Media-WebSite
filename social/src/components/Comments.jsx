@@ -6,24 +6,25 @@ import Cloudinary from './Cloudinary'
 import { useParams } from 'react-router-dom'
 
 
-const  Comments=({commentData,hundelComment})=> {
+const  Comments=({postId,commentData,hundelComment})=> {
 
   const [img,setImg]=useState("")
   const [comment,setComment]=useState("")
   const {id}=useParams()
-
+console.log(postId)
  const newComment=(newObj)=>{
   axios.post('http://localhost:3000/api/socialMedia/comments',newObj).then((ress)=>{
-    hundelComment(commentData[0].po_postId)
+    hundelComment(postId)
   })
  }
 
  const deleteComment=(commentId)=>{
   axios.delete(`http://localhost:3000/api/socialMedia/comments/${commentId}`).then((ress)=>{
-    hundelComment(commentData[0].po_postId)
+    hundelComment(postId)
   })
  }
- console.log(id)
+ console.log(commentData)
+ console.log("ahhh",id)
   return (
     <div className="comments-container">
       <div className='add-container'>
@@ -34,7 +35,7 @@ const  Comments=({commentData,hundelComment})=> {
         <h4 className='add-button' onClick={()=>{newComment({
           co_Content:comment,
           co_Image:img,
-          po_postId:commentData[0].po_postId,
+          po_postId:postId,
           co_userId:id
         })}}>Add</h4>
       </div>

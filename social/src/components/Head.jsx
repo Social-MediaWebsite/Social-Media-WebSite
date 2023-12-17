@@ -4,7 +4,7 @@ import image from '../assets/letter1.png'
 import { IoSearch } from "react-icons/io5";
 import logo from '../assets/logos.png'
 
-function Head({id}) {
+function Head({userData,id}) {
   console.log(id)
   return (
     <header>
@@ -19,7 +19,7 @@ function Head({id}) {
             <NavLink to={`/Home/${id}`} className="nav-link">Home</NavLink>
             <NavLink to={'/Friends'} className="nav-link">Friends</NavLink>
             <NavLink to={'/Logout'} className="nav-link">Logout</NavLink> 
-            <NavLink to={'/UserProfile'} className="nav-link">Your Profile</NavLink>
+            <NavLink to={'/UserProfile'} className="nav-link"><img src={userData?.userImage} alt="no" /></NavLink>
           </div>
         </nav>
       </header>
