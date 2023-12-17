@@ -14,11 +14,17 @@ const addFriend=(friend,cb)=>{
     })
 }
 
-const deleteFriend=(id,cb)=>{
-    const sql=`DELETE FROM friends WHERE friendsId=${id}`
+const deleteFriend=(id,friendId,cb)=>{
+    const sql=`DELETE FROM friends WHERE fr_userId=${id} AND friendsId=${friendId} `
     connection.query(sql,(err,result)=>{
         cb(err,result)
     })
 }
+const getUserNF=(arr,cb)=>{
+    const sql=`select * from users where not userId in (${arr.join()});`
+        connection.query(sql,(err,result)=>{
+            cb(err,result)
+        })
+}
 
-module.exports={getFriendsOfUser,addFriend,deleteFriend}
+module.exports={getFriendsOfUser,addFriend,deleteFriend,getUserNF}

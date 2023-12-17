@@ -52,5 +52,4 @@ const getUserById = (id, cb) => {
     });
   };
 
-
 module.exports={getAllUsers,AddUser,updateUser,deleteUser, getUserById}

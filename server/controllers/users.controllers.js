@@ -2,7 +2,8 @@ const {getAllUsers,AddUser,updateUser,deleteUser, getUserById}=require('../model
 const jwt = require('jsonwebtoken');
 
 const generateToken = (userId) => {
-  return jwt.sign({ userId }, 'secretKey', { expiresIn: '1h' });
+  const expiresIn = 60 * 60 * 24
+  return jwt.sign({ userId }, 'secretKey', { expiresIn: expiresIn });
 };
 
 const getAll=(req,res)=>{
@@ -69,4 +70,5 @@ const getById = (req, res) => {
       }
     });
   };
+
 module.exports={getAll,addOne,updateOne,deleteOne,getById}

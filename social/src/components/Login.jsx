@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext/authContext.jsx';
+import logo from '../assets/logo2.png'
 
 function Login({setId}) {
   const { setToken } = useAuth();
@@ -46,6 +47,7 @@ function Login({setId}) {
   return (
     <div className="container">
       <div className="form-container">
+        <div className='logo-login'><img src={logo} alt="" /></div>
         <h2 className="title">Login</h2>
         <form onSubmit={handleSubmit} className="form">
           <label className="label">

@@ -10,12 +10,12 @@ import { useParams } from 'react-router-dom'
 function Posts() {
  const [postData,setPostData]=useState([])
  const [showComment,setShowComment] = useState(false)
-  const [commentData,setCommentData] = useState([])
-  const [idcomment,setIdComment] = useState(0)
-  const [img,setImg]=useState('')
-const [content,setContent]=useState("")
-const [refrPo,setRefrPo]=useState(false)
-const {id}=useParams()
+ const [commentData,setCommentData] = useState([])
+ const [idcomment,setIdComment] = useState(0)
+ const [img,setImg]=useState('')
+ const [content,setContent]=useState("")
+ const [refrPo,setRefrPo]=useState(false)
+ const {id}=useParams()
 
  useEffect(()=>{
     axios.get("http://localhost:3000/api/socialMedia/postes").then((ress)=>{
@@ -23,7 +23,8 @@ const {id}=useParams()
       setPostData(ress.data)
     })
  },[refrPo])
- const hundelComment=(ids)=>{ 
+    
+  const hundelComment=(ids)=>{ 
   setIdComment(ids)
     axios.get(`http://localhost:3000/api/socialMedia/comments/post/${ids}`).then((ress)=>{
      console.log(ress.data)
@@ -31,13 +32,31 @@ const {id}=useParams()
      
    })  
  }
+
+  const hundelLike=(ids)=>{ 
+  setIdComment(ids)
+    axios.get(`http://localhost:3000/api/socialMedia/comments/post/${ids}`).then((ress)=>{
+     console.log(ress.data)
+     setCommentData(ress.data)
+     
+   })  
+ }
+
+
 const handleAdd=(obj)=>{
   axios.post(`http://localhost:3000/api/socialMedia/postes`,obj).then((ress)=>{
      console.log(ress.data)
      setRefrPo(!refrPo)
    }) 
 }
- console.log("img",img)
+
+const handleDelete=(post)=>{
+  axios.delete(`http://localhost:3000/api/socialMedia/postes/${post}`).then((ress)=>{
+     console.log(ress.data)
+     setRefrPo(!refrPo)
+   }) 
+}
+
  return (
     <div className="main-container">
       <div className='add-container'>
@@ -56,8 +75,9 @@ const handleAdd=(obj)=>{
       <div key={i} className="post-container">
         <div className="user-info-container">
           <img className="user-image" src={e.userImage} alt='hi' />
-          <h3 onClick={()=>{}}>{e.userName}</h3>
+          <h3 >{e.userName}</h3>
           <div>{e.po_updatedAt}</div>
+          {(e.po_userId==id)&&<button onClick={()=>{handleDelete(e.postId)}}>Delete</button>}
         </div>
         <div className="post-content-container">
           <div className='poContent'><h3>{e.po_content}</h3></div>
@@ -65,7 +85,7 @@ const handleAdd=(obj)=>{
         </div>
         <div className="actions-container">
           <div></div>
-          <Likes/> 
+          <Likes postId={e.postId}/> 
           <FaComments  onClick={()=>{
           setShowComment(!showComment);
           hundelComment(e.postId)

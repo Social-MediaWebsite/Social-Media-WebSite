@@ -12,12 +12,18 @@ const  Comments=({commentData,hundelComment})=> {
   const [comment,setComment]=useState("")
   const {id}=useParams()
 
-
  const newComment=(newObj)=>{
   axios.post('http://localhost:3000/api/socialMedia/comments',newObj).then((ress)=>{
     hundelComment(commentData[0].po_postId)
   })
  }
+
+ const deleteComment=(commentId)=>{
+  axios.delete(`http://localhost:3000/api/socialMedia/comments/${commentId}`).then((ress)=>{
+    hundelComment(commentData[0].po_postId)
+  })
+ }
+ console.log(id)
   return (
     <div className="comments-container">
       <div className='add-container'>
@@ -39,14 +45,13 @@ const  Comments=({commentData,hundelComment})=> {
               <h6>{e.userName}</h6>
               <p>{e.co_updatedAt}</p>
             </div>
-
             <div className='co-info'>
             <p>{e.co_Content}</p>
             <img src={e.co_Image} alt="" />
 
             </div>
             <div className='del-rep'>
-              <h5 >reply</h5> <h5 >delete</h5>
+             {(e.co_userId==id)&&<h5 onClick={()=>{deleteComment(e.commentId)}} >delete</h5>}
             </div>
           </div>
         ))}

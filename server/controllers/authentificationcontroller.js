@@ -4,7 +4,8 @@ const { addOne} = require('./users.controllers');
 const connection =require('../database-mysql/index')
 
 const generateToken = (userId, userName) => {
-  return jwt.sign({ userId, userName }, 'secretKey', { expiresIn: '2h' });
+  const expiresIn = 60 * 60 * 24;
+  return jwt.sign({ userId, userName }, 'secretKey', { expiresIn: expiresIn });
 };
 const registerUser = async (req, res) => {
   const { userName, userEmail, userPassword } = req.body;
@@ -16,13 +17,8 @@ const registerUser = async (req, res) => {
       userName,
       userEmail,
       userPassword: hashedPassword,
-      userImage: 'https://shorturl.at/egA37',
-
-    };
-    
-
-    // Call addOne with req and res
-    addOne({ body: newUser }, res);
+      userImage: 'https://shorturl.at/egA37',}
+     addOne({ body: newUser }, res);
   } catch (error) {
     res.status(500).json({ error: 'Error' });
   }

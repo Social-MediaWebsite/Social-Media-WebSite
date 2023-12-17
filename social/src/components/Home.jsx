@@ -1,19 +1,23 @@
-
 import React, { useState, useEffect } from 'react'; 
 import axios from 'axios';
 import Posts from './Posts';
 import './css/Post.css';
+import Head from './Head';
+import UsersFriends from './UsersFriends';
+import Pub from './Pub';
 
-import Navbar from './Navbar'
-
-function Home() {
+function Home({dataUsers,dataFriends}) {
   
 
 
   return (
+    <div>
+      <Head />
      <div className='home'>
-       <Navbar/>
+      <Pub/>
       <Posts />
+      <UsersFriends dataUsers={dataUsers} dataFriends={dataFriends}/>
+    </div>
     </div>
   );
 }
