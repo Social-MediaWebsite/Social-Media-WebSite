@@ -165,6 +165,8 @@ INSERT INTO postes values(4,"jerrba :)","https://shorturl.at/bczXY","16:40
 Tue Dec 13 2023","16:40 Tue Dec 13 2023",2);
 INSERT INTO postes values(5,"i enjoy my time playing lol","https://shorturl.at/ABOVY","20:24
 Tue Dec 13 2023","20:24 Tue Dec 13 2023",1);
+INSERT INTO postes values(20,"with my friend mané","https://shorturl.at/DMNS6","20:24
+Tue Dec 13 2023","20:24 Tue Dec 13 2023",10);
 
 INSERT INTO comments values(1	,"hi i'm mouhib hhh","https://shorturl.at/txFR1","22:38 Wed Dec 13 2023",	"22:38 Wed Dec 13 2023",1,2);
 INSERT INTO comments values(2,"hi i'm oussema","https://shorturl.at/eEX12"	,"22:39 Wed Dec 13 2023"	,"22:39 Wed Dec 13 2023",	1,3);

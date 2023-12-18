@@ -14,7 +14,6 @@ function Head({userData,id}) {
           <input type="search" placeholder='hello' />
           </div>
           <div className="nav-links">
-            <NavLink to={'/'} className="nav-link">Login</NavLink>
             <NavLink to={`/Home/${id}`} className="nav-link">Home</NavLink>
             <NavLink to={'/Friends'} className="nav-link">Friends</NavLink>
             <NavLink to={'/Logout'} className="nav-link">Logout</NavLink> 

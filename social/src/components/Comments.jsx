@@ -26,6 +26,7 @@ console.log(postId)
  console.log(commentData)
  console.log("ahhh",id)
   return (
+    <div className='commentss'>
     <div className="comments-container">
       <div className='add-container'>
         <div className='value-container' >
@@ -57,6 +58,7 @@ console.log(postId)
           </div>
         ))}
     </div>    
+    </div>
   )
 }
 

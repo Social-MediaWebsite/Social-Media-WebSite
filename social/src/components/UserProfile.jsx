@@ -4,7 +4,6 @@ import Comments from './Comments'
 import Likes from './Likes'
 import Cloudinary from './Cloudinary'
 import './css/Post.css'
-import './css/Post.css'
 import './css/UserProfile.css'
 import { FaComments } from "react-icons/fa";
 import Head from './Head'
@@ -58,8 +57,10 @@ console.log("ff",img);
       <div className='test'>
       <div className='profile'>
         <img className='user-image1' src={userInfo.userImage} alt="" />
+        <div className='flex'>
         <Cloudinary setImg={setImg}/> 
-        <button onClick={()=>{hundleUpdate()}}>Update</button>  
+        <button onClick={()=>{hundleUpdate()}}>Update</button> 
+        </div> 
         <h2>{userInfo.userName}</h2>
         <p>{userInfo.userEmail}</p>
       </div>

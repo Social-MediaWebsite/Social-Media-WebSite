@@ -1,3 +1,15 @@
+/* 
+.commentss {
+    border: 2px solid red;
+    inset: 0px;  
+    height: 1000px;
+    width: 1000px;
+    margin: 0 auto;
+    background-color: rgba(135, 181, 181, 0.546) ;
+    display: fixed;
+    z-index: 11;
+  } */
+
 .comments-container > div {
     margin-bottom: 8px;
 }
@@ -38,10 +50,9 @@
     margin-right: 50%;
     flex-direction: column;
     width: 100%;
-    border: 1px solid red;
 }
 .co-info img{
-    width: 80%; 
+    width: 60%; 
     border-radius: 0;
     margin-right: 8px;
 }

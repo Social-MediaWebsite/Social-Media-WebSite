@@ -10,6 +10,7 @@ header {
   padding: 10px;
   width: 100%;
   position: fixed;
+  z-index: 6;
 }
 
 .all-container{
@@ -57,7 +58,7 @@ header {
 }
 
 .nav-link {
-  color: rgb(71, 10, 83);
+  color: rgb(33, 156, 232);
   text-decoration: none;
   padding: 10px;
   margin-right: 10px;

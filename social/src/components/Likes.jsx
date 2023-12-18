@@ -33,14 +33,14 @@ function Likes({postId}) {
 
   console.log("hhh",usersLikes)
   return (
-    <div>
+    <div className='likes-flex'>
       {(usersLikes.includes(parseInt(id)))?
       <FcLike onClick={()=>{handleDelete(id,postId)}} />:
       <FcLikePlaceholder onClick={()=>{handleAdd({
         po_postId:postId,
         li_userId:id
       })}} />}
-      <div>{numLike}</div>
+      <div>({numLike})</div>
     </div>
   )
 }

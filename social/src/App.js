@@ -62,20 +62,22 @@ function App() {
     })
   }
   useEffect(()=>{
+    id!==0?
     axios.get(`http://localhost:3000/api/socialMedia/friends/${id}`).then((ress)=>{
      console.log("friends",ress.data)
      setFriends(ress.data)
      setDataFriends(ress.data)
-     ress.data.length?handleArray(ress.data):console.log("no length")
+     handleArray(ress.data)
    }).catch((error)=>{
      console.log(error)
-   })
+   }):console.log("id not valid")
  },[id,refresh])
 
 const refre=()=>{
   setRefresh(!refresh)
 }
  console.log("hhh",userData)
+ console.log("id",id)
   return (
     <div className="App">
       <Routes>

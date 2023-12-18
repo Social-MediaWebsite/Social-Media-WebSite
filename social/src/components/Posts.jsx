@@ -7,6 +7,8 @@ import './css/Post.css'
 import { FaComments } from "react-icons/fa";
 import { useParams } from 'react-router-dom'
 
+import { MdDelete } from "react-icons/md";
+
 function Posts() {
  const [postData,setPostData]=useState([])
  const [showComment,setShowComment] = useState(false)
@@ -68,9 +70,9 @@ const handleDelete=(post)=>{
       <div key={i} className="post-container">
         <div className="user-info-container">
           <img className="user-image" src={e.userImage} alt='hi' />
-          <h3 >{e.userName}</h3>
-          <div>{e.po_updatedAt}</div>
-          {(e.po_userId==id)&&<button onClick={()=>{handleDelete(e.postId)}}>Delete</button>}
+          <div><h3 >{e.userName}</h3>
+          <div>{e.po_updatedAt}</div></div>
+          {(e.po_userId==id)&&<MdDelete  className='deleteBtn' onClick={()=>{handleDelete(e.postId)}}/>}
         </div>
         <div className="post-content-container">
           <div className='poContent'><h3>{e.po_content}</h3></div>

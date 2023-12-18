@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import './css/friends.css';
 import axios from 'axios';
 import Head from './Head';
-import { MdDelete } from "react-icons/md";
+import { TiUserDelete } from "react-icons/ti";
 
 function Friends({ data,userAdd, setRefresh, refresh,id,userData}) {
   
@@ -35,7 +35,7 @@ function Friends({ data,userAdd, setRefresh, refresh,id,userData}) {
             <img src={el.userImage} alt='' />
             <div className='friends-name'>
             <h3>{el.userName}</h3>
-            <MdDelete className='delete-button' onClick={() => {handleDelete({friendsId:el.friendsId}) }}/>
+            <TiUserDelete className='delete-button' onClick={() => {handleDelete({friendsId:el.friendsId}) }}/>
           </div>
           </div>
         ))}
