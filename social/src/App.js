@@ -41,7 +41,7 @@ function App() {
     fetchUserData();
     console.log("user", userData);
     
-  }, [id]);  
+  }, [id,refresh]);  
 
   // useEffect(()=>{
   //    axios.get('http://localhost:3000/api/socialMedia/users').then((ress)=>{
@@ -71,6 +71,10 @@ function App() {
      console.log(error)
    })
  },[id,refresh])
+
+const refre=()=>{
+  setRefresh(!refresh)
+}
  console.log("hhh",userData)
   return (
     <div className="App">
@@ -80,7 +84,7 @@ function App() {
         <Route path='/Friends' element={<Friends userData={userData} data={friends} userAdd={userAdd} setRefresh={setRefresh} refresh={refresh} id={id}/>}/>
         <Route path='/Posts' element={<Posts  />} />
         <Route path='/Signup' element={<Signup setId={setId} />}></Route>
-        <Route path='/UserProfile' element={<UserProfile userInfo={userData}/>}></Route>
+        <Route path='/UserProfile' element={<UserProfile refre={refre} userInfo={userData}/>}></Route>
         <Route path='/Logout' element={<Logout id={id}/>}></Route>
       </Routes>
     </div>

@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavLink} from 'react-router-dom';
-import image from '../assets/letter1.png'
 import { IoSearch } from "react-icons/io5";
 import logo from '../assets/logos.png'
 

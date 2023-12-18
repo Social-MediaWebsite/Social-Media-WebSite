@@ -11,12 +11,13 @@ import Head from './Head'
 import { useParams } from 'react-router-dom'
 
 
-function UserProfile({userInfo}) {
+function UserProfile({userInfo,refre}) {
   const [oneUser,setOneUser]=useState([])
  const [showComment,setShowComment] = useState(false)
  const [commentData,setCommentData] = useState([])
  const [idcomment,setIdComment] = useState(0)
  const [refrPo,setRefrPo]=useState(false)
+ const [img,setImg]=useState("")
  const {id}=useParams()
 
  useEffect(()=>{
@@ -44,14 +45,21 @@ const handleDelete=(post)=>{
      setRefrPo(!refrPo)
    }) 
 }
-
+const hundleUpdate=()=>{
+  axios.put(`http://localhost:3000/api/socialMedia/users/${userInfo.userId}`,{userImage:img}).then(ress=>{
+    refre()
+  }).catch((err)=>{console.error(err)})
+ }
+console.log("ff",img);
  return (
   <div>
     <Head userData={userInfo} id={userInfo.userId}/>
     <div className="main-container-user">
       <div className='test'>
       <div className='profile'>
-        <img className='user-image1' src={userInfo.userImage} alt="" />   
+        <img className='user-image1' src={userInfo.userImage} alt="" />
+        <Cloudinary setImg={setImg}/> 
+        <button onClick={()=>{hundleUpdate()}}>Update</button>  
         <h2>{userInfo.userName}</h2>
         <p>{userInfo.userEmail}</p>
       </div>
